@@ -1,0 +1,106 @@
+<div class="container" id="profile" class="login-box animated fadeInUp">
+    	<div class="row">
+            <div class="col-md-6 col-center">   
+            	<div class="card my-5">
+                	<div class="card-block p-4">
+                	<h1 class="text-center">Register</h1>
+                    	<form action="" ng-controller="registerController" name="registerForm" ng-controller="proController" novalidate>
+                            <div class="form-group">
+                                <label for="state">State<span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                 <select ng-change="c1()" class="form-control" ng-model="register.state" required>
+									<option value="" selected disabled>---Please select State---</option>
+									<option ng-repeat="state in states" value="{{state}}">{{state}}</option>
+									</select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="university">University<span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <select ng-change="c2()" class="form-control" ng-model="register.university" required>
+									<option  value="" selected disabled>---Please select University---</option>
+									<option ng-repeat="university in universities" value="{{university.university_name}}">{{university.university_name}}</option>
+									</select>
+                                </div>
+                            </div>
+                             <div class="form-group">
+                                <label for="college">College<span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <select class="form-control" ng-model="register.college" required>
+									<option value="" selected disabled>---Please select College---</option>
+									<option ng-repeat="college in colleges" value="{{college.college_name}}">{{college.college_name}}</option>
+									</select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="profession">Profession<span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <input class="col-sm-2" type="radio" name="profession" ng-model="register.role" value="faculty" checked>
+									Faculty
+									<input class="col-sm-2" type="radio" name="profession" ng-model="register.role" value="student">
+									Student	
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Name<span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="register.fulll_name" required ng-maxlength="50">
+                                </div>
+                            </div>
+                           
+                            <div class="form-group">
+                                <label for="aadhar">Aadhar<span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="register.aadhar" required ng-maxlength="15">
+                                </div>
+                            </div>
+                            <div ng-if="register.role=='faculty'">
+                             <div class="form-group">
+                                <label for="aicte_id">Aicte Id<span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="register.faculty_id" required ng-maxlength="15">
+                                </div>
+                            </div>
+                            </div>
+                            <div ng-if="register.role=='student'">
+                             <div class="form-group">
+                                <label for="roll_no">Enrollnment No.<span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="register.roll_no" required ng-maxlength="15">
+                                </div>
+                            </div>
+							</div>
+							<button type="button" class="btn btn-block btn-danger" ng-click="registerDetails()">Register</button>
+							<p class="text-xs-right mt-2">
+                            	<a href="#/login">Already Registered?Login here..</a>
+                       	 </p>
+                    </div><!-- /.card-block -->
+                </div><!-- /.card -->
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </section><!-- /.container -->
+    </form>>

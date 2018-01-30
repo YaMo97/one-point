@@ -1,0 +1,7 @@
+FXML:
+
+Alert alert = new Alert(AlertType.CONFIRMATION, "Login ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
+alert.showAndWait();
+if (alert.getResult() == ButtonType.YES) {
+    //do stuff
+}

@@ -1,0 +1,1 @@
+S. No.,Student ID(Primary Key),Univ ID(Foregin Key),College ID(Foreign Key),Full Name,Email,Login ID ,Password,Is Aadhaar Verified?,Are Bank Details Verified?,Is PAN Verified?

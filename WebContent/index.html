@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>AICTE</title>
+
+	<!-- Google Fonts -->
+	
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Custom Stylesheet -->
+	<link rel="stylesheet" href="css/style1.css">
+	<link rel="stylesheet" href="vendors/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="vendors/fontawesome/css/font-awesome.min.css">
+	
+	<script src="vendors/jquery/jquerymin.js"></script>
+	<script src="vendors/bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="vendors/angular_js/angular.min.js">
+	</script>
+	<script src="vendors/angular_js/route.min.js"></script>
+	
+</head>
+
+<body ng-app="aicteApp" >
+	
+<div ng-controller="aicteController"> <h5> 
+<nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm sticky-top">
+              <a class="navbar-brand" style="color:#A0A0A0" href="#/">AICTE</a>
+                <div class="collapse navbar-collapse justify-content-end text-sm-center" id="navbarHeader">
+                
+                 <div ng-if="a==1">  
+                	<ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link" href="" ng-click="home()"><i class="fa fa-lg fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="" ng-click="basic()"><i class="fa fa-lg fa-male"></i> Profile</a>
+                    </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="" ng-click="professional()"><i class="fa fa-lg fa-fw fa-handshake-o"></i> Bank Details</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="" ng-click="Logout()"><i class="fa fa-fw fa-sign-out"></i> Sign Out</a>
+                    </li>
+                  	</ul>
+                   </div>
+                    
+                	<div ng-if="a==0">
+                   <ul class="navbar-nav">
+                    <li class="nav-item" >
+                        <a class="nav-link" href="#/login"><i class="fa fa-fw fa-sign-in"></i> Sign In</a>
+                    </li>
+                    <li class="nav-item" >
+                        <a class="nav-link" href="#/register"><i class="fa fa-fw fa-sign-in"></i> Register</a>
+                    </li>
+                	</ul>
+           			 </div>
+         
+      
+            </div>
+ </nav>  
+ </h5>
+	
+			<div ng-view>
+			
+			</div>
+		
+	</div>
+</body>
+<script type"text/javascript">
+
+var ip="http://localhost:9080/"
+</script>
+<script src="js/app.js"></script>
+<script src="js/myController.js"></script>
+
+<script>
+	$(document).ready(function () {
+    	$('#logo').addClass('animated fadeInDown');
+    	$("input:text:visible:first").focus();
+	});
+	$('#username').focus(function() {
+		$('label[for="username"]').addClass('selected');
+	});
+	$('#username').blur(function() {
+		$('label[for="username"]').removeClass('selected');
+	});
+	$('#password').focus(function() {
+		$('label[for="password"]').addClass('selected');
+	});
+	$('#password').blur(function() {
+		$('label[for="password"]').removeClass('selected');
+	});
+</script>
+
+</html>

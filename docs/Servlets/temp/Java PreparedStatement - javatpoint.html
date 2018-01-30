@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)http://www.javatpoint.com/PreparedStatement-interface -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Java PreparedStatement - javatpoint</title><link rel="SHORTCUT ICON" href="http://www.javatpoint.com/images/logo/icon.png"><link rel="stylesheet" type="text/css" href="./Java PreparedStatement - javatpoint_files/link.css"><meta name="keywords" content="PreparedStatement, interface,example"><meta name="description" content="Java PreparedStatement interface with examples on Driver, DriverManager, Connection, Statement, ResultSet, PreparedStatement, CallableStatement, ResultSetMetaData, DatabaseMetaData, RowSet, Store Image, Fetch Image, Store file, Fetch file etc."><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="canonical" href="http://www.javatpoint.com/PreparedStatement-interface"><meta property="og:locale" content="en_US"><meta property="og:type" content="article"><meta name="twitter:title" property="og:title" content="Java PreparedStatement - javatpoint"><meta name="twitter:description" property="og:description" content="Java PreparedStatement interface with examples on Driver, DriverManager, Connection, Statement, ResultSet, PreparedStatement, CallableStatement, ResultSetMetaData, DatabaseMetaData, RowSet, Store Image, Fetch Image, Store file, Fetch file etc."><meta property="og:url" content="http://www.javatpoint.com/PreparedStatement-interface"><meta property="og:site_name" content="www.javatpoint.com"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@pagejavatpoint"><meta name="twitter:domain" content="www.javatpoint.com"><meta name="twitter:creator" content="@pagejavatpoint"><style type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</style><style type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</style><style type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</style><style type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</style><style type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</style><style type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</style><style type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</style><style type="text/css">.dp-j .annotation { color: #646464; }.dp-j .number { color: #C00000; }</style><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style></head> <body onload="highlightlink()"> <div id="page" style="margin-top:-8px;background-color:#f5f5f4;"><div id="container"> <div class="header"><!--<p style="font-weight:bold;padding:7px;color:white;background-color:gray;margin:0px"><marquee>Please delete cookie and cache of your browser once because many links of javatpoint are changed. You may face problem if you don't delete cookie and cache of the browser.</marquee></p>
+-->
+<table style="width:100%"><tbody><tr><td><div id="headerlink" style="padding:0px;margin:0px"><span style="margin-right:20px;width:45%px"></span><span style="float:right;margin-right:5px;width:45%"><a href="http://www.javatpoint.com/contact-us" style="text-decoration:none;color:#6666CC">Contact Us</a> | <a href="http://www.javatpoint.com/contribute-us" style="text-decoration:none;color:#6666CC">Contribute</a> | <a href="http://www.javatpoint.com/asknewquestion.jsp" style="text-decoration:none;color:#6666CC">Ask Question</a> | <a href="http://www.javatpoint.com/login.jsp" style="text-decoration:none;color:#6666CC">login</a> <a target="_blank" href="http://feeds.feedburner.com/javatpointsonoo"><img src="./Java PreparedStatement - javatpoint_files/r.png" alt="RSS Feed"></a>&nbsp;<a target="_blank" href="http://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="./Java PreparedStatement - javatpoint_files/m.png" alt="Subscribe to Get Email Alerts"></a>&nbsp;<a target="_blank" href="https://www.facebook.com/javatpoint"><img src="./Java PreparedStatement - javatpoint_files/f.png" alt="Facebook Page"></a>&nbsp;<a target="_blank" href="https://plus.google.com/u/0/113973042385691981314/posts"><img src="./Java PreparedStatement - javatpoint_files/g.png" alt="Google Page"></a>&nbsp;<a target="_blank" href="https://twitter.com/pagejavatpoint"><img src="./Java PreparedStatement - javatpoint_files/t.png" alt="Twitter Page"></a></span><hr class="upperhr"></div> </td></tr><tr><td>
+<div style="float:left;width:230px;"><a href="http://www.javatpoint.com/"><img src="./Java PreparedStatement - javatpoint_files/jtp_logo.png" alt="Javatpoint Logo"></a></div>
+<!--<div style="margin:0px;padding:0px;float:left;width:23%;margin-left:10px;margin-bottom:0px"><a href="http://www.javatpoint.com" style="text-decoration:none;"><span style="color:orange;font-size:28px;font-weight:bold;">Java</span><span style="color:#666600;font-size:40px;font-weight:bold;">T</span><span style="color:red;font-size:28px;font-weight:bold;">point</span></a></div>-->
+
+<div style="float:left;width:50%;"><form class="navbar-search" method="get" action="http://www.google.com/search" target="_blank"> <input type="text" name="q" class="search-query span2" placeholder="Search on javatpoint..." title="Search on Javatpoint"><input type="hidden" name="sitesearch" value="www.javatpoint.com"></form><!--<span style="margin-left:100px;color:orange;font-size:20px;font-weight:bold;">Happy </span><span style="color:red;font-size:20px;font-weight:bold;">New </span><span style="color:#666600;font-size:20px;font-weight:bold;">Year</span><span style="color:#666600;font-size:30px;font-weight:bold;"> 2015</span>--></div><div style="width:25%;float:right"><div style="padding:0px;margin:0px;margin-right:10px;margin-top:10px;float:right"><a target="_blank" style="background-color:#6699CC;text-decoration:none;color:white;border-radius:2px;font-weight:bold;padding:6px 10px 6px 10px;" href="http://www.javatpoint.com/subscribe.jsp">Subscribe Us</a></div><div style="padding:0px;margin:0px;margin-right:10px;float:right"><p style="padding:0px;margin:0px;margin-top:5px;color:#983688;font-weight:bold;">91-9990449935</p><p style="padding:0px;margin:0px;color:#983688;font-weight:bold;">&nbsp;0120-4256464</p></div></div></td></tr></tbody></table> </div>
+<div class="headermobile">
+<div style="margin-top:10px;padding:0px;text-align:left;">
+<span style="float:left"><input type="image" src="./Java PreparedStatement - javatpoint_files/menuhome64.png" onclick="showmenu()"></span>
+<span style="float:left"><a href="http://www.javatpoint.com/"><img src="./Java PreparedStatement - javatpoint_files/jtp_logo.png" alt="Javatpoint Logo"></a></span>
+</div>
+<div style="margin:0px;padding:0px;clear:both"><form class="navbar-search-m" method="get" action="http://www.google.com/search" target="_blank"> <input type="text" name="q" class="search-query span2-m" placeholder="Search on javatpoint..." title="Search on Javatpoint"><input type="hidden" name="sitesearch" value="www.javatpoint.com"></form></div></div><div id="link" style="clear:both"> <div id="smoothmenu1" class="ddsmoothmenu">
+<ul>
+<li><a href="http://www.javatpoint.com/">Home</a></li>
+<li><a href="http://www.javatpoint.com/c-programming-language-tutorial">C</a></li>
+<li><a href="http://www.javatpoint.com/cpp-tutorial">C++</a></li>
+<li><a href="http://www.javatpoint.com/c-sharp-tutorial">C#</a></li>
+<li><a href="http://www.javatpoint.com/java-tutorial" class="selected">Java</a></li>
+<li><a href="http://www.javatpoint.com/servlet-tutorial">Servlet</a></li>
+<li><a href="http://www.javatpoint.com/jsp-tutorial">JSP</a></li>
+<li><a href="http://www.javatpoint.com/ejb-tutorial">EJB</a></li>
+<li><a href="http://www.javatpoint.com/struts-2-tutorial">Struts2</a></li>
+<li><a href="http://www.javatpoint.com/java-mail-api-tutorial">Mail</a></li>
+<li><a href="http://www.javatpoint.com/hibernate-tutorial">Hibernate</a></li>
+<li><a href="http://www.javatpoint.com/spring-tutorial">Spring</a></li>
+<li><a href="http://www.javatpoint.com/android-tutorial">Android</a></li>
+<li><a href="http://www.javatpoint.com/design-patterns-in-java">Design P</a></li>
+<li><a href="http://www.javatpoint.com/examaccess">Quiz</a></li>
+<li><a href="http://www.javatpoint.com/free-java-projects">Projects</a></li>
+<li><a href="http://www.javatpoint.com/corejava-interview-questions">Interview Q</a>
+</li><li><a href="http://www.javatpoint.com/comment.jsp">Comment</a>
+</li><li><a href="http://www.javatpoint.com/forum">Forum</a>
+</li><li><a href="http://www.javatpoint.com/training">Training</a>
+</li>
+</ul>
+<br style="clear: left">
+</div>
+</div><div class="mobilemenu" style="clear:both"> </div>
+
+<div id="menu"><div class="leftmenu2">
+<a href="http://www.javatpoint.com/java-tutorial"><span>Basics of Java </span></a>
+<a href="http://www.javatpoint.com/java-oops-concepts"><span>OOPs Concepts</span></a>
+<a href="http://www.javatpoint.com/java-string"><span>Java String</span></a>
+<a href="http://www.javatpoint.com/java-regex"><span>Java Regex</span></a>
+<a href="http://www.javatpoint.com/exception-handling-in-java"><span>Exception Handling</span></a>
+<a href="http://www.javatpoint.com/java-inner-class"><span>Java Inner classes</span></a>
+<a href="http://www.javatpoint.com/multithreading-in-java"><span>Java Multithreading</span></a>
+<a href="http://www.javatpoint.com/java-io"><span>Java I/O</span></a>
+<a href="http://www.javatpoint.com/java-networking"><span>Java Networking</span></a>
+<a href="http://www.javatpoint.com/java-awt"><span>Java AWT</span></a>
+<a href="http://www.javatpoint.com/java-swing"><span>Java Swing</span></a>
+<a href="http://www.javatpoint.com/java-applet"><span>Java Applet</span></a>
+<a href="http://www.javatpoint.com/java-reflection"><span>Java Reflection</span></a>
+<a href="http://www.javatpoint.com/java-date"><span>Java Date</span></a>
+<a href="http://www.javatpoint.com/java-string-to-int"><span>Java Conversion</span></a>
+<a href="http://www.javatpoint.com/collections-in-java"><span>Java Collection</span></a>
+</div>
+<div class="leftmenu2">
+<h2 class="spanh2"><span class="spanh2">Java JDBC</span></h2>
+</div>
+<div class="leftmenu">
+<a href="http://www.javatpoint.com/jdbc-tutorial">JDBC Introduction</a>
+<a href="http://www.javatpoint.com/jdbc-driver">JDBC Driver</a>
+<a href="http://www.javatpoint.com/steps-to-connect-to-the-database-in-java">DB Connectivity Steps</a>
+<a href="http://www.javatpoint.com/example-to-connect-to-the-oracle-database">Connectivity with Oracle</a>
+<a href="http://www.javatpoint.com/example-to-connect-to-the-mysql-database">Connectivity with MySQL</a>
+<a href="http://www.javatpoint.com/connectivity-with-access-without-dsn">Access without DSN</a>
+<a href="http://www.javatpoint.com/DriverManager-class">DriverManager</a>
+<a href="http://www.javatpoint.com/Connection-interface">Connection</a>
+<a href="http://www.javatpoint.com/Statement-interface">Statement</a>
+<a href="http://www.javatpoint.com/ResultSet-interface">ResultSet</a>
+<a href="http://www.javatpoint.com/PreparedStatement-interface" style="color: black;"><strong>PreparedStatement</strong> <img src="./Java PreparedStatement - javatpoint_files/open-12.png" alt="open link"></a>
+<a href="http://www.javatpoint.com/ResultSetMetaData-interface">ResultSetMetaData</a>
+<a href="http://www.javatpoint.com/DatabaseMetaData-interface">DatabaseMetaData</a>
+<a href="http://www.javatpoint.com/storing-image-in-oracle-database">Store image</a>
+<a href="http://www.javatpoint.com/retrieving-image-from-oracle-database">Retrieve image</a>
+<a href="http://www.javatpoint.com/storing-file-in-oracle-database">Store file</a>
+<a href="http://www.javatpoint.com/retrieving-file-from-oracle-database">Retrieve file</a>
+<a href="http://www.javatpoint.com/CallableStatement-interface">CallableStatement</a>
+<a href="http://www.javatpoint.com/transaction-management-in-jdbc">Transaction Management</a>
+<a href="http://www.javatpoint.com/batch-processing-in-jdbc">Batch Processing</a>
+<a href="http://www.javatpoint.com/jdbc-rowset">RowSet Interface</a>
+<a href="http://www.javatpoint.com/PreparedStatement-interface#">JDBC New Features</a>
+<a href="http://www.javatpoint.com/directload.jsp?val=93">JDBC Quiz-1</a>
+<a href="http://www.javatpoint.com/directload.jsp?val=94">JDBC Quiz-2</a>
+<a href="http://www.javatpoint.com/directload.jsp?val=95">JDBC Quiz-3</a>
+</div>
+
+<div class="leftmenu2">
+<a href="http://www.javatpoint.com/New-features-in-java"><span>Java New Features</span></a>
+<a href="http://www.javatpoint.com/RMI"><span>RMI</span></a>
+<a href="http://www.javatpoint.com/internationalization-in-java"><span>Internationalization</span></a>
+</div>
+
+
+
+<table id="leftad"><tbody><tr><td><img src="./Java PreparedStatement - javatpoint_files/wh.JPG" alt="space"></td></tr><tr><td>
+<script src="./Java PreparedStatement - javatpoint_files/3605.js.download" async="" type="text/javascript"></script><script type="text/javascript" async="" src="./Java PreparedStatement - javatpoint_files/ga.js.download"></script><script id="facebook-jssdk" src="./Java PreparedStatement - javatpoint_files/sdk.js.download"></script><script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-4699858549023382" data-ad-slot="4476401222"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+</td></tr></tbody></table>
+
+</div><div class="onlycontent">
+
+
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- CM_JTP_Leaderbaord -->
+<ins class="adsbygoogle cm_jtp_leaderbaord" style="display:inline-block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="9201901915"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<div style="margin-left:0px;">
+<div id="city">
+<table>
+<tbody><tr><td>
+<div id="bottomnextup">
+
+<a class="next" href="http://www.javatpoint.com/ResultSetMetaData-interface">next&gt;&gt;</a>
+<a class="next" href="http://www.javatpoint.com/ResultSet-interface">&lt;&lt;prev</a>
+
+</div>
+
+<h1 class="h1">PreparedStatement interface</h1>
+<p>
+The PreparedStatement interface is a subinterface of Statement. It is used to execute parameterized query.
+</p>
+<p>Let's see the example of parameterized query:</p>
+<div class="codeblock"><div class="dp-highlighter"><div class="bar"><div class="tools"><a href="http://www.javatpoint.com/PreparedStatement-interface#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;"></a><a href="http://www.javatpoint.com/PreparedStatement-interface#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;"></a><a href="http://www.javatpoint.com/PreparedStatement-interface#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;"></a></div></div><ol start="1" class="dp-j"><li class="alt"><span><span>String&nbsp;sql=</span><span class="string">"insert&nbsp;into&nbsp;emp&nbsp;values(?,?,?)"</span><span>;&nbsp;&nbsp;</span></span></li></ol></div><textarea name="code" class="java" style="display: none;">String sql="insert into emp values(?,?,?)";
+</textarea></div>
+<p>As you can see, we are passing parameter (?) for the values. Its value will be set by calling the setter methods of PreparedStatement.</p>
+
+<h3 class="h3">Why use PreparedStatement?</h3>
+<p>
+<b>Improves performance</b>: The performance of the application will be faster if you use PreparedStatement interface because query is compiled only once. 
+</p>
+<hr>
+<h4 class="h4">How to get the instance of PreparedStatement?</h4>
+<p>
+The prepareStatement() method of Connection interface is used to return the object of PreparedStatement. Syntax:
+</p>
+
+<div class="codeblock"><div class="dp-highlighter"><div class="bar"><div class="tools"><a href="http://www.javatpoint.com/PreparedStatement-interface#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;"></a><a href="http://www.javatpoint.com/PreparedStatement-interface#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;"></a><a href="http://www.javatpoint.com/PreparedStatement-interface#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;"></a></div></div><ol start="1" class="dp-j"><li class="alt"><span><span class="keyword">public</span><span>&nbsp;PreparedStatement&nbsp;prepareStatement(String&nbsp;query)</span><span class="keyword">throws</span><span>&nbsp;SQLException{}&nbsp;&nbsp;</span></span></li></ol></div><textarea name="code" class="java" style="display: none;">public PreparedStatement prepareStatement(String query)throws SQLException{}
+</textarea></div>
+
+<hr>
+<h3 class="h3">Methods of PreparedStatement interface</h3>
+<p>The important methods of PreparedStatement interface are given below:</p>
+<table class="alt">
+<tbody><tr><th>Method</th><th>Description</th></tr>
+<tr><td>public void setInt(int paramIndex, int value)</td><td>sets the integer value to the given parameter index.</td></tr>
+<tr><td>public void setString(int paramIndex, String value)</td><td>sets the String value to the given parameter index.</td></tr>
+<tr><td>public void setFloat(int paramIndex, float value)</td><td>sets the float value to the given parameter index.</td></tr>
+<tr><td>public void setDouble(int paramIndex, double value)</td><td>sets the double value to the given parameter index.</td></tr>
+<tr><td>public int executeUpdate()</td><td>executes the query. It is used for create, drop, insert, update, delete etc.</td></tr>
+<tr><td>public ResultSet executeQuery()</td><td>executes the select query. It returns an instance of ResultSet.</td></tr>
+</tbody></table>
+
+<h3 class="h3">Example of PreparedStatement interface that inserts the record</h3>
+<p>First of all create table as given below:</p>
+<div class="codeblock"><div class="dp-highlighter"><div class="bar"><div class="tools"><a href="http://www.javatpoint.com/PreparedStatement-interface#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;"></a><a href="http://www.javatpoint.com/PreparedStatement-interface#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;"></a><a href="http://www.javatpoint.com/PreparedStatement-interface#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;"></a></div></div><ol start="1" class="dp-j"><li class="alt"><span><span>create&nbsp;table&nbsp;emp(id&nbsp;number(</span><span class="number">10</span><span>),name&nbsp;varchar2(</span><span class="number">50</span><span>));&nbsp;&nbsp;</span></span></li></ol></div><textarea name="code" class="java" style="display: none;">create table emp(id number(10),name varchar2(50));
+</textarea></div>
+<p>Now insert records in this table by the code given below:</p>
+<div class="codeblock"><div class="dp-highlighter"><div class="bar"><div class="tools"><a href="http://www.javatpoint.com/PreparedStatement-interface#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;"></a><a href="http://www.javatpoint.com/PreparedStatement-interface#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;"></a><a href="http://www.javatpoint.com/PreparedStatement-interface#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;"></a></div></div><ol start="1" class="dp-j"><li class="alt"><span><span class="keyword">import</span><span>&nbsp;java.sql.*;&nbsp;&nbsp;</span></span></li><li class=""><span><span class="keyword">class</span><span>&nbsp;InsertPrepared{&nbsp;&nbsp;</span></span></li><li class="alt"><span><span class="keyword">public</span><span>&nbsp;</span><span class="keyword">static</span><span>&nbsp;</span><span class="keyword">void</span><span>&nbsp;main(String&nbsp;args[]){&nbsp;&nbsp;</span></span></li><li class=""><span><span class="keyword">try</span><span>{&nbsp;&nbsp;</span></span></li><li class="alt"><span>Class.forName(<span class="string">"oracle.jdbc.driver.OracleDriver"</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>Connection&nbsp;con=DriverManager.getConnection(<span class="string">"jdbc:oracle:thin:@localhost:1521:xe"</span><span>,</span><span class="string">"system"</span><span>,</span><span class="string">"oracle"</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>PreparedStatement&nbsp;stmt=con.prepareStatement(<span class="string">"insert&nbsp;into&nbsp;Emp&nbsp;values(?,?)"</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span>stmt.setInt(<span class="number">1</span><span>,</span><span class="number">101</span><span>);</span><span class="comment">//1&nbsp;specifies&nbsp;the&nbsp;first&nbsp;parameter&nbsp;in&nbsp;the&nbsp;query</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>stmt.setString(<span class="number">2</span><span>,</span><span class="string">"Ratan"</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span><span class="keyword">int</span><span>&nbsp;i=stmt.executeUpdate();&nbsp;&nbsp;</span></span></li><li class=""><span>System.out.println(i+<span class="string">"&nbsp;records&nbsp;inserted"</span><span>);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>con.close();&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>}<span class="keyword">catch</span><span>(Exception&nbsp;e){&nbsp;System.out.println(e);}&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>}&nbsp;&nbsp;</span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li></ol></div><textarea name="code" class="java" style="display: none;">import java.sql.*;
+class InsertPrepared{
+public static void main(String args[]){
+try{
+Class.forName("oracle.jdbc.driver.OracleDriver");
+
+Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
+
+PreparedStatement stmt=con.prepareStatement("insert into Emp values(?,?)");
+stmt.setInt(1,101);//1 specifies the first parameter in the query
+stmt.setString(2,"Ratan");
+
+int i=stmt.executeUpdate();
+System.out.println(i+" records inserted");
+
+con.close();
+
+}catch(Exception e){ System.out.println(e);}
+
+}
+}
+</textarea></div>
+
+<div class="download">
+<a href="http://www.javatpoint.com/src/jdbc/InsertPrepared.zip">download this example</a>
+</div>
+
+<hr>
+
+<h3 class="h3">Example of PreparedStatement interface that updates the record</h3>
+
+<div class="codeblock"><div class="dp-highlighter"><div class="bar"><div class="tools"><a href="http://www.javatpoint.com/PreparedStatement-interface#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;"></a><a href="http://www.javatpoint.com/PreparedStatement-interface#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;"></a><a href="http://www.javatpoint.com/PreparedStatement-interface#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;"></a></div></div><ol start="1" class="dp-j"><li class="alt"><span><span>PreparedStatement&nbsp;stmt=con.prepareStatement(</span><span class="string">"update&nbsp;emp&nbsp;set&nbsp;name=?&nbsp;where&nbsp;id=?"</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span>stmt.setString(<span class="number">1</span><span>,</span><span class="string">"Sonoo"</span><span>);</span><span class="comment">//1&nbsp;specifies&nbsp;the&nbsp;first&nbsp;parameter&nbsp;in&nbsp;the&nbsp;query&nbsp;i.e.&nbsp;name</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>stmt.setInt(<span class="number">2</span><span>,</span><span class="number">101</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span><span class="keyword">int</span><span>&nbsp;i=stmt.executeUpdate();&nbsp;&nbsp;</span></span></li><li class=""><span>System.out.println(i+<span class="string">"&nbsp;records&nbsp;updated"</span><span>);&nbsp;&nbsp;</span></span></li></ol></div><textarea name="code" class="java" style="display: none;">PreparedStatement stmt=con.prepareStatement("update emp set name=? where id=?");
+stmt.setString(1,"Sonoo");//1 specifies the first parameter in the query i.e. name
+stmt.setInt(2,101);
+
+int i=stmt.executeUpdate();
+System.out.println(i+" records updated");
+</textarea></div>
+
+<div class="download">
+<a href="http://www.javatpoint.com/src/jdbc/UpdatePrepared.zip">download this example</a>
+</div>
+
+<hr>
+
+<h3 class="h3">Example of PreparedStatement interface that deletes the record</h3>
+
+<div class="codeblock"><div class="dp-highlighter"><div class="bar"><div class="tools"><a href="http://www.javatpoint.com/PreparedStatement-interface#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;"></a><a href="http://www.javatpoint.com/PreparedStatement-interface#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;"></a><a href="http://www.javatpoint.com/PreparedStatement-interface#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;"></a></div></div><ol start="1" class="dp-j"><li class="alt"><span><span>PreparedStatement&nbsp;stmt=con.prepareStatement(</span><span class="string">"delete&nbsp;from&nbsp;emp&nbsp;where&nbsp;id=?"</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span>stmt.setInt(<span class="number">1</span><span>,</span><span class="number">101</span><span>);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span><span class="keyword">int</span><span>&nbsp;i=stmt.executeUpdate();&nbsp;&nbsp;</span></span></li><li class="alt"><span>System.out.println(i+<span class="string">"&nbsp;records&nbsp;deleted"</span><span>);&nbsp;&nbsp;</span></span></li></ol></div><textarea name="code" class="java" style="display: none;">PreparedStatement stmt=con.prepareStatement("delete from emp where id=?");
+stmt.setInt(1,101);
+
+int i=stmt.executeUpdate();
+System.out.println(i+" records deleted");
+</textarea></div>
+
+<div id="download">
+<a href="http://www.javatpoint.com/src/jdbc/DeletePrepared.zip">download this example</a>
+</div>
+<hr>
+
+<h3 class="h3">Example of PreparedStatement interface that retrieve the records of a table</h3>
+
+<div class="codeblock"><div class="dp-highlighter"><div class="bar"><div class="tools"><a href="http://www.javatpoint.com/PreparedStatement-interface#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;"></a><a href="http://www.javatpoint.com/PreparedStatement-interface#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;"></a><a href="http://www.javatpoint.com/PreparedStatement-interface#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;"></a></div></div><ol start="1" class="dp-j"><li class="alt"><span><span>PreparedStatement&nbsp;stmt=con.prepareStatement(</span><span class="string">"select&nbsp;*&nbsp;from&nbsp;emp"</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span>ResultSet&nbsp;rs=stmt.executeQuery();&nbsp;&nbsp;</span></li><li class="alt"><span><span class="keyword">while</span><span>(rs.next()){&nbsp;&nbsp;</span></span></li><li class=""><span>System.out.println(rs.getInt(<span class="number">1</span><span>)+</span><span class="string">"&nbsp;"</span><span>+rs.getString(</span><span class="number">2</span><span>));&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li></ol></div><textarea name="code" class="java" style="display: none;">PreparedStatement stmt=con.prepareStatement("select * from emp");
+ResultSet rs=stmt.executeQuery();
+while(rs.next()){
+System.out.println(rs.getInt(1)+" "+rs.getString(2));
+}
+</textarea></div>
+
+<div id="download">
+<a href="http://www.javatpoint.com/src/jdbc/RetrievePrepared.zip">download this example</a>
+</div>
+
+<hr>
+
+<h3 class="h3">Example of PreparedStatement to insert records until user press n</h3>
+
+<div class="codeblock"><div class="dp-highlighter"><div class="bar"><div class="tools"><a href="http://www.javatpoint.com/PreparedStatement-interface#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;"></a><a href="http://www.javatpoint.com/PreparedStatement-interface#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;"></a><a href="http://www.javatpoint.com/PreparedStatement-interface#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;"></a></div></div><ol start="1" class="dp-j"><li class="alt"><span><span class="keyword">import</span><span>&nbsp;java.sql.*;&nbsp;&nbsp;</span></span></li><li class=""><span><span class="keyword">import</span><span>&nbsp;java.io.*;&nbsp;&nbsp;</span></span></li><li class="alt"><span><span class="keyword">class</span><span>&nbsp;RS{&nbsp;&nbsp;</span></span></li><li class=""><span><span class="keyword">public</span><span>&nbsp;</span><span class="keyword">static</span><span>&nbsp;</span><span class="keyword">void</span><span>&nbsp;main(String&nbsp;args[])</span><span class="keyword">throws</span><span>&nbsp;Exception{&nbsp;&nbsp;</span></span></li><li class="alt"><span>Class.forName(<span class="string">"oracle.jdbc.driver.OracleDriver"</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span>Connection&nbsp;con=DriverManager.getConnection(<span class="string">"jdbc:oracle:thin:@localhost:1521:xe"</span><span>,</span><span class="string">"system"</span><span>,</span><span class="string">"oracle"</span><span>);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>PreparedStatement&nbsp;ps=con.prepareStatement(<span class="string">"insert&nbsp;into&nbsp;emp130&nbsp;values(?,?,?)"</span><span>);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>BufferedReader&nbsp;br=<span class="keyword">new</span><span>&nbsp;BufferedReader(</span><span class="keyword">new</span><span>&nbsp;InputStreamReader(System.in));&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span><span class="keyword">do</span><span>{&nbsp;&nbsp;</span></span></li><li class="alt"><span>System.out.println(<span class="string">"enter&nbsp;id:"</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span><span class="keyword">int</span><span>&nbsp;id=Integer.parseInt(br.readLine());&nbsp;&nbsp;</span></span></li><li class="alt"><span>System.out.println(<span class="string">"enter&nbsp;name:"</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span>String&nbsp;name=br.readLine();&nbsp;&nbsp;</span></li><li class="alt"><span>System.out.println(<span class="string">"enter&nbsp;salary:"</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span><span class="keyword">float</span><span>&nbsp;salary=Float.parseFloat(br.readLine());&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>ps.setInt(<span class="number">1</span><span>,id);&nbsp;&nbsp;</span></span></li><li class="alt"><span>ps.setString(<span class="number">2</span><span>,name);&nbsp;&nbsp;</span></span></li><li class=""><span>ps.setFloat(<span class="number">3</span><span>,salary);&nbsp;&nbsp;</span></span></li><li class="alt"><span><span class="keyword">int</span><span>&nbsp;i=ps.executeUpdate();&nbsp;&nbsp;</span></span></li><li class=""><span>System.out.println(i+<span class="string">"&nbsp;records&nbsp;affected"</span><span>);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>System.out.println(<span class="string">"Do&nbsp;you&nbsp;want&nbsp;to&nbsp;continue:&nbsp;y/n"</span><span>);&nbsp;&nbsp;</span></span></li><li class="alt"><span>String&nbsp;s=br.readLine();&nbsp;&nbsp;</span></li><li class=""><span><span class="keyword">if</span><span>(s.startsWith(</span><span class="string">"n"</span><span>)){&nbsp;&nbsp;</span></span></li><li class="alt"><span><span class="keyword">break</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li><li class="alt"><span>}<span class="keyword">while</span><span>(</span><span class="keyword">true</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>con.close();&nbsp;&nbsp;</span></li><li class=""><span>}}&nbsp;&nbsp;</span></li></ol></div><textarea name="code" class="java" style="display: none;">import java.sql.*;
+import java.io.*;
+class RS{
+public static void main(String args[])throws Exception{
+Class.forName("oracle.jdbc.driver.OracleDriver");
+Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
+
+PreparedStatement ps=con.prepareStatement("insert into emp130 values(?,?,?)");
+
+BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+
+do{
+System.out.println("enter id:");
+int id=Integer.parseInt(br.readLine());
+System.out.println("enter name:");
+String name=br.readLine();
+System.out.println("enter salary:");
+float salary=Float.parseFloat(br.readLine());
+
+ps.setInt(1,id);
+ps.setString(2,name);
+ps.setFloat(3,salary);
+int i=ps.executeUpdate();
+System.out.println(i+" records affected");
+
+System.out.println("Do you want to continue: y/n");
+String s=br.readLine();
+if(s.startsWith("n")){
+break;
+}
+}while(true);
+
+con.close();
+}}
+</textarea></div>
+
+<div class="nexttopicdiv">
+<span class="nexttopictext">Next Topic</span><span class="nexttopiclink"><a href="http://www.javatpoint.com/ResultSetMetaData-interface">ResultSetMetaData Interface</a></span>
+</div>
+
+
+<!-- link -->
+<br><br>
+
+<div id="bottomnext">
+<a style="float:left" class="next" href="http://www.javatpoint.com/ResultSet-interface">&lt;&lt;prev</a>
+
+<a style="float:right" class="next" href="http://www.javatpoint.com/ResultSetMetaData-interface">next&gt;&gt;</a>
+</div>
+
+<br><br>
+
+<br><br><br>
+</td></tr></tbody></table>
+</div>
+
+
+<!-- latest tutorials start -->
+<fieldset class="gra1footer">
+<h2 class="h2">Latest 4 Tutorials on JavaTpoint</h2>
+<div class="firsthomecontent">
+<a href="http://www.javatpoint.com/scala-tutorial">
+<div class="homecontent">
+<img src="./Java PreparedStatement - javatpoint_files/scala-home.png" alt="Scala tutorial"><span class="homespan">Scala</span>
+</div>
+</a>
+<a href="http://www.javatpoint.com/perl-tutorial">
+<div class="homecontent">
+<img src="./Java PreparedStatement - javatpoint_files/perl-home.png" alt="Perl tutorial"><span class="homespan">Perl</span>
+</div>
+</a>
+<a href="http://www.javatpoint.com/java-swing">
+<div class="homecontent">
+<img src="./Java PreparedStatement - javatpoint_files/java-swing-tutorial.png" alt="Java Swing tutorial"><span class="homespan">Java Swing</span>
+</div>
+</a>
+<a href="http://www.javatpoint.com/xhtml-tutorial">
+<div class="homecontent">
+<img src="./Java PreparedStatement - javatpoint_files/xhtml-home.jpg" alt="XHTML tutorial"><span class="homespan">XHTML</span>
+</div>
+</a>
+
+</div>
+</fieldset>
+<!-- latest tutorial end -->
+<br>
+<!-- social sharing buttons -->
+<!--facebook-->
+<span id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Java PreparedStatement - javatpoint_files/iPrOY23SGAp.html" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Java PreparedStatement - javatpoint_files/iPrOY23SGAp(1).html" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></span>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=151763741599302";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<span class="fb-share-button fb_iframe_widget" data-href="http://www.javatpoint.com/PreparedStatement-interface" data-layout="button_count" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=151763741599302&amp;container_width=0&amp;href=http%3A%2F%2Fwww.javatpoint.com%2FPreparedStatement-interface&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey"><span style="vertical-align: bottom; width: 75px; height: 20px;"><iframe name="f2b47a92174a74c" width="1000px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:share_button Facebook Social Plugin" src="./Java PreparedStatement - javatpoint_files/share_button.html" style="border: none; visibility: visible; width: 75px; height: 20px;" class=""></iframe></span></span>
+
+</div>
+
+
+<br><div class="mobilemenu" style="clear:both">
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!-- responsivemobilefooter --><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4699858549023382" data-ad-slot="8222866318" data-ad-format="auto"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div></div>
+<div id="right" style="width:15%;float:left;margin-left:10px;margin-top:10px;">
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-4699858549023382" data-ad-slot="3155368314"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br><br><br>
+
+
+
+
+</div>
+<div class="right1024" style="float:left;margin-left:10px;margin-top:120px;"><script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!-- right1024only --><ins class="adsbygoogle" style="display:inline-block;width:120px;height:600px" data-ad-client="ca-pub-4699858549023382" data-ad-slot="2180118716"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<br><br>
+</div>
+
+<div id="footer" style="clear:both;width:100%">
+
+<script type="text/javascript"> var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-24880427-1']); _gaq.push(['_trackPageview']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();</script><hr>
+
+<div style="padding:0px;margin:0px;text-align:center"><sup style="font:16px arial;">Like/Subscribe us for latest updates or newsletter </sup><a target="_blank" href="http://feeds.feedburner.com/javatpointsonoo"><img src="./Java PreparedStatement - javatpoint_files/rss1.png" alt="RSS Feed"></a><a target="_blank" href="http://feedburner.google.com/fb/a/mailverify?uri=javatpointsonoo"><img src="./Java PreparedStatement - javatpoint_files/mail1.png" alt="Subscribe to Get Email Alerts"></a><a target="_blank" href="https://www.facebook.com/javatpoint"><img src="./Java PreparedStatement - javatpoint_files/facebook1.jpg" alt="Facebook Page"></a><a target="_blank" rel="author" href="https://plus.google.com/u/0/113973042385691981314/posts"><img src="./Java PreparedStatement - javatpoint_files/google1.png" alt="Google Page"></a><a target="_blank" href="https://twitter.com/pagejavatpoint"><img src="./Java PreparedStatement - javatpoint_files/twitter1.png" alt="Twitter Page"></a><a target="_blank" href="http://javatpoint.blogspot.com/"><img src="./Java PreparedStatement - javatpoint_files/blog.png" alt="Blog Page"></a><a href="http://www.javatpoint.com/PreparedStatement-interface#" style="font:bold 18px arial;text-decoration:none;"><sup>↑Top</sup></a></div><div style="margin:auto 0px;line-height:20px;padding:0px 40px;font-size:12px;height:390px;background:#6699CC;color: white; font-family:serif; border-bottom: solid 1px #A3AE7E;"> <div id="innerfooter"> <div><span style="text-decoration:none;font-size:larger;font-family:serif;color:white;font-weight:bolder;">Tutorials</span> <hr><ul class="footer-list"> <li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/java-tutorial">» Core Java Tutorial</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/servlet-tutorial">» Servlet Tutorial</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/jsp-tutorial">» JSP Tutorial</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/java-mail-api-tutorial">» Mail API Tutorial</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/design-patterns-in-java">» Design Pattern Tutorial</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/struts-2-tutorial">» Struts Tutorial</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/spring-tutorial">» Spring Tutorial</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/hibernate-tutorial">» Hibernate Tutorial</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/android-tutorial">» Android Tutorial</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/javascript-tutorial">» JavaScript Tutorial</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/sql-tutorial">» SQL Tutorial</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/c-programming-language-tutorial">» C Tutorial</a></li> <li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/ajax-tutorial">» AJAX Tutorial</a></li> <li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/junit-tutorial">» JUnit Tutorial</a></li> <li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/jaxb-tutorial">» JAXB Tutorial</a></li> <li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/maven-tutorial">» Maven Tutorial</a></li></ul> </div> <div><span style="text-decoration:none;font-size:larger;font-family:serif;color:white;font-weight:bolder;">Interview Questions</span> <hr><ul class="footer-list"> <li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/corejava-interview-questions">» Java Interview</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/servletinterview">» Servlet Interview</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/jspinterview">» JSP Interview</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/hibernate-interview-questions">» Hibernate Interview</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/spring-interview-questions">» Spring Interview</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/android-interview-questions">» Android Interview</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/sql-interview-questions">» SQL Interview</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/pl-sql-interview-questions">» PL/SQL Interview</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/oracle-interview-questions">» Oracle Interview</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/mysql-interview-questions">» MySQL Interview</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/sql-server-interview-questions">» SQL Server Interview</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/mongodb-interview-questions">» MongoDB Interview</a></li> <li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/cloud-computing-interview-questions">» Cloud Interview</a></li> </ul> </div><div><a style="font-weight:bolder;text-decoration: none;text-align:center;font-size:larger;font-family:serif;color:white;" target="_blank" href="http://www.javatpoint.com/examaccess">Quizzes</a><hr><ul class="footer-list"><li><a target="_blank" href="http://www.javatpoint.com/core-java-quiz" style="text-decoration: none;font-family:serif;color:white;">» Core Java quiz</a></li><li><a target="_blank" href="http://www.javatpoint.com/servlet-quiz" style="text-decoration: none;font-family:serif;color:white;">» Servlet quiz</a></li><li><a target="_blank" href="http://www.javatpoint.com/jsp-quiz" style="text-decoration: none;font-family:serif;color:white;">» JSP quiz</a></li><li><a target="_blank" href="http://www.javatpoint.com/struts-quiz" style="text-decoration: none;font-family:serif;color:white;">» Struts2 quiz</a></li><li><a target="_blank" href="http://www.javatpoint.com/android-quiz" style="text-decoration: none;font-family:serif;color:white;">» Android quiz</a></li><li><a target="_blank" href="http://www.javatpoint.com/scjp-quiz" style="text-decoration: none;font-family:serif;color:white;">» OCJP quiz</a></li><li><a target="_blank" href="http://www.javatpoint.com/scwcd-quiz" style="text-decoration: none;font-family:serif;color:white;">» OCWCD quiz</a></li><li><a target="_blank" href="http://www.javatpoint.com/hibernate-quiz" style="text-decoration: none;font-family:serif;color:white;">» Hibernate quiz</a></li><li><a target="_blank" href="http://www.javatpoint.com/spring-quiz" style="text-decoration: none;font-family:serif;color:white;">» Spring quiz</a></li><li><a target="_blank" href="http://www.javatpoint.com/c-quiz" style="text-decoration: none;font-family:serif;color:white;">» C quiz</a></li><li><a target="_blank" href="http://www.javatpoint.com/cloud-computing-quiz" style="text-decoration: none;font-family:serif;color:white;">» Cloud Computing quiz</a></li><li><a target="_blank" href="http://www.javatpoint.com/javascript-quiz" style="text-decoration: none;font-family:serif;color:white;">» JavaScript quiz</a></li><li><a target="_blank" href="http://www.javatpoint.com/sql-quiz" style="text-decoration: none;font-family:serif;color:white;">» SQL quiz</a></li></ul></div><div><a style="font-weight:bolder;text-decoration: none;font-size:larger;font-family:serif;color:white;text-align:center;" target="_blank" href="http://www.javatpoint.com/forum">Forum</a><hr><ul class="footer-list"><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/forum.jsp?category=corejava">» Core Java Ques.</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/forum.jsp?category=servlet">» Servlet Ques.</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/forum.jsp?category=jsp">» JSP Ques.</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/forum.jsp?category=struts">» Struts Ques.</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/forum.jsp?category=spring">» Spring Ques.</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/forum.jsp?category=hibernate">» Hibernate Ques.</a></li><li><a style="text-decoration: none;font-family:serif;color:white;" href="http://www.javatpoint.com/forum.jsp?category=android">» Android Ques.</a></li></ul><hr><a style="font-weight:bolder;text-decoration: none;text-align:center;font-size:larger;font-family:serif;color:white;" href="http://www.javatpoint.com/free-java-projects">Projects</a><hr><a style="font-weight:bolder;text-decoration: none;font-size:larger;font-family:serif;text-align:center;color:white;" href="http://www.sssit.org/" rel="nofollow">SSS IT PVT LTD</a><hr><ul class="footer-list"><li><a rel="nofollow" href="http://www.sssit.org/development" style="text-decoration: none;font-family:serif;color:white;">» Development</a></li><li><a href="http://www.javatpoint.com/training" style="text-decoration: none;font-family:serif;color:white;">» Training</a></li><li><a rel="nofollow" href="http://www.sssit.org/seo" style="text-decoration: none;font-family:serif;color:white;">» SEO</a></li><li><a rel="nofollow" href="http://www.sssit.org/consultancy" style="text-decoration: none;font-family:serif;color:white;">» Consultancy</a></li></ul></div><div style="border-right:2px solid white;"><span style="font-weight:bolder;text-decoration: none;font-size:larger;font-family:serif;color:white;float:right;padding-right:16px;">CONTACT US</span><br><hr><p style="text-align:center;border-bottom:1px solid white;padding-bottom:30px;">Tel. : 0120-4256464<br>Mob. : +91 9990449935<br>Email : enquiry@sssit.org<br>Address: 2nd Floor, G-13,<br> (Near 16 Metro Station),<br>Sec - 3, Noida, <br>201301, UP, India<br><a href="http://www.javatpoint.com/contact-us" style="text-decoration: none;font-family:serif;color:white;">» Contact Us</a><br><a href="http://www.javatpoint.com/privacy-policy" style="text-decoration: none;font-family:serif;color:white;">» Privacy Policy</a></p><p style="text-align:center;border-bottom:1px solid white;padding-bottom:30px;padding-left:none;"><br>© 2011-2014 Javatpoint.<br> All Rights Reserved.<br><a href="http://www.dmca.com/Protection/Status.aspx?ID=e8b533d5-7356-47f5-820b-72c890f03a4e" rel="nofollow" title="DMCA"> <img src="./Java PreparedStatement - javatpoint_files/dmca_protected_sml_120c.png" alt="DMCA.com"></a></p></div></div></div>
+
+</div></div></div><script src="./Java PreparedStatement - javatpoint_files/shcoreandbrush.js.download"></script><script type="text/javascript"> dp.SyntaxHighlighter.HighlightAll('code'); </script>
+<script type="text/javascript">
+setTimeout(function(){var a=document.createElement("script");
+var b=document.getElementsByTagName("script")[0];
+a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0027/3605.js?"+Math.floor(new Date().getTime()/3600000);
+a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+</script>
+  </body></html>

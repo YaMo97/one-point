@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)https://www.tutorialspoint.com/servlets/servlets-life-cycle.htm -->
+<html class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+<title>Servlets - Life Cycle</title>
+<meta name="description" content="Servlets Life Cycle - Learning Java Servlets in simple and easy steps using this beginner&#39;s tutorial containing basic to advanced knowledge of Java Servlet Technology including Form Data, HTTP Request Header, Response Header, Status Codes, Cookies Handling and Session Tracking.">
+<meta name="keywords" content="Servlets, Tutorials, Learning, Beginners, Basics, Environment, Life Cycle, Examples, Client Request, Server Response, Http Codes, Writing Filters, Exceptions, Cookies, Sessions, Database Access, File Uploading, File Uploading, Internationalization.">
+<!--<base href="https://www.tutorialspoint.com/">--><base href=".">
+<link rel="shortcut icon" href="https://www.tutorialspoint.com/favicon.ico" type="image/x-icon">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="robots" content="index, follow">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="tutorialspoint.com">
+<script type="text/javascript" src="./Servlets - Life Cycle_files/script-min-v4.js.download"></script>
+<link rel="stylesheet" href="./Servlets - Life Cycle_files/style-min.css">
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #d42426 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #d42426 !important;}
+.submenu-item{ border-bottom: 2px solid #d42426 !important; border-top: 2px solid #d42426 !important }
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+</head>
+<body onload="prettyPrint()">
+<div class="wrapLoader">
+   <div class="imgLoader">
+      <img src="./Servlets - Life Cycle_files/loading-cg.gif" alt="" width="70" height="70">
+   </div>
+</div>
+<header>
+   <div class="container">			
+      <h1 class="logo">
+      <a href="https://www.tutorialspoint.com/index.htm" title="tutorialspoint">
+      <img alt="tutorialspoint" src="./Servlets - Life Cycle_files/logo.png">
+      </a>
+      </h1>			
+      <nav>
+         <ul class="nav nav-pills nav-top">
+            <li><a href="https://www.tutorialspoint.com/about/about_careers.htm" style="background: #fffb09; font-weight: bold;"><i class="icon icon-suitcase"></i> Jobs</a></li>
+            <li> <a href="http://www.sendfiles.net/"><i class="fa fa-send"></i> &nbsp;SENDFiles</a> </li>
+            <li> <a href="https://www.tutorialspoint.com/whiteboard.htm"><img src="./Servlets - Life Cycle_files/image-editor.png" alt="Whiteboard" title="Whiteboard"> &nbsp;Whiteboard</a> </li>
+            <li> <a href="https://www.tutorialspoint.com/netmeeting.php"><i class="fa-camera"></i> &nbsp;Net Meeting</a> </li>
+            <li> <a href="https://www.tutorialspoint.com/online_dev_tools.htm"> <i class="dev-tools-menu" style="opacity:.5"></i> Tools </a> </li>
+            <li> <a href="https://www.tutorialspoint.com/articles/index.php"><i class="icon icon-file-text-o"></i> &nbsp;Articles</a> </li>            
+            <li class="top-icons">
+              <ul class="social-icons">
+              <li class="facebook"><a href="https://www.facebook.com/tutorialspointindia" target="_blank" data-placement="bottom" title="tutorialspoint @ Facebook">Facebook</a></li>
+              <li class="googleplus"><a href="https://plus.google.com/u/0/116678774017490391259/posts" target="_blank" data-placement="bottom" title="tutorialspoint @ Google+">Google+</a></li>
+              <li class="twitter"><a href="https://www.twitter.com/tutorialspoint" target="_blank" data-placement="bottom" title="tutorialspoint @ Twitter">Twitter</a></li>
+              <li class="linkedin"><a href="https://www.linkedin.com/company/tutorialspoint" target="_blank" data-placement="bottom" title="tutorialspoint @ Linkedin">Linkedin</a></li>
+              <li class="youtube"><a href="https://www.youtube.com/channel/UCVLbzhxVTiTLiVKeGV7WEBg" target="_blank" data-placement="bottom" title="tutorialspoint YouTube">YouTube</a></li>
+              </ul>
+           </li>
+         </ul>
+      </nav>
+         <!-- search code here  --> 
+      <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse" id="pull" style="top: 389.2px!important"> <i class="icon icon-bars"></i> </button>
+   </div>
+  
+   <div class="navbar nav-main">
+      <div class="container">
+         <nav class="nav-main mega-menu">
+            <ul class="nav nav-pills nav-main" id="mainMenu">
+               <li class="dropdown no-sub-menu"> <a class="dropdown" href="https://www.tutorialspoint.com/index.htm"><i class="icon icon-home"></i> Home</a> </li>   
+               <li class="dropdown" id="liTL"><a class="dropdown" href="javascript:void(0);"><span class="tut-lib"> Tutorials Library <i class="fa-caret-down"></i></span></a></li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="https://www.tutorialspoint.com/codingground.htm"><i class="fa-code"></i> Coding Ground </a> </li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="https://www.tutorialspoint.com/tutor_connect/index.php"><i class="fa-user"> </i> Tutor Connect</a></li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="https://www.tutorialspoint.com/videotutorials/index.htm"><i class="fa-toggle-right"></i> Videos </a></li>
+               <li class="dropdown no-sub-menu">
+                  <div class="searchform-popup">
+                     <input class="header-search-box" type="text" id="search-string" name="q" placeholder="Search your favorite tutorials..." onfocus="if (this.value == &#39;Search your favorite tutorials...&#39;) {this.value = &#39;&#39;;}" onblur="if (this.value == &#39;&#39;) {this.value = &#39;Search your favorite tutorials...&#39;;}" autocomplete="off">
+                     <div class="magnifying-glass"><i class="icon-search"></i> Search </div>
+                 </div>
+               </li>
+            </ul>
+         </nav>
+         <div class="submenu-item sub-main-menu" id="top-sub-menu"></div>
+         
+      </div>
+   </div>	
+</header>
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+<div class="col-md-2">
+<aside class="sidebar">
+<div class="mini-logo">
+<img src="./Servlets - Life Cycle_files/servlets-mini-logo.jpg" alt="Servlets Tutorial">
+</div>
+<ul class="nav nav-list primary left-menu">
+<li class="heading">Servlets Tutorial</li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/index.htm">Servlets - Home</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets_overview.htm">Servlets - Overview</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-environment-setup.htm">Servlets - Environment Setup</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-life-cycle.htm" style="background-color: rgb(214, 214, 214);">Servlets - Life Cycle</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-first-example.htm">Servlets - Examples</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-form-data.htm">Servlets - Form Data</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-client-request.htm">Servlets - Client Request</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-server-response.htm">Servlets - Server Response</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-http-status-codes.htm">Servlets - Http Codes</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-writing-filters.htm">Servlets - Writing Filters</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-exception-handling.htm">Servlets - Exceptions</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-cookies-handling.htm">Servlets - Cookies Handling</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-session-tracking.htm">Servlets - Session Tracking</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-database-access.htm">Servlets - Database Access</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-file-uploading.htm">Servlets - File Uploading</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-handling-date.htm">Servlets - Handling Date</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-page-redirect.htm">Servlets - Page Redirect</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-hits-counter.htm">Servlets - Hits Counter</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-auto-refresh.htm">Servlets - Auto Refresh</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-sending-email.htm">Servlets - Sending Email</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-packaging.htm">Servlets - Packaging</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-debugging.htm">Servlets - Debugging</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-internationalization.htm">Servlets - Internationalization</a></li>
+</ul>
+<ul class="nav nav-list primary left-menu">
+<li class="heading">Servlet Useful Resources</li>
+<li><a href="https://www.tutorialspoint.com/servlets/servlets-questions-answers.htm">Servlets - Questions and Answers</a></li>
+<li><a href="https://www.tutorialspoint.com/servlets/servlets-quick-guide.htm">Servlets - Quick Guide</a></li>
+<li><a href="https://www.tutorialspoint.com/servlets/servlets-useful-resources.htm">Servlets - Useful Resources</a></li>
+<li><a href="https://www.tutorialspoint.com/servlets/servlets-discussion.htm">Servlets - Discussion</a></li>
+</ul>
+
+<ul class="nav nav-list primary push-bottom left-menu special">
+<li class="sreading">Selected Reading</li>
+<li><a target="_top" href="https://www.tutorialspoint.com/developers_best_practices/index.htm">Developer's Best Practices</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/questions_and_answers.htm">Questions and Answers</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/effective_resume_writing.htm">Effective Resume Writing</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/hr_interview_questions/index.htm">HR Interview Questions</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/computer_glossary.htm">Computer Glossary</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/computer_whoiswho.htm">Who is Who</a></li>
+</ul>
+ 
+</aside>
+</div>
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+<div class="col-md-7 middle-col">
+<h1>Servlets - Life Cycle</h1>
+<div class="topgooglead">
+<hr>
+<div style="padding-bottom:5px;padding-left:10px;">Advertisements</div>
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "image";
+google_ad_channel = "";
+//--></script>
+<script type="text/javascript" src="https://pagead2.googlesyndication.com/pagead/show_ads.js"> 
+</script>
+</div>
+<hr>
+<div class="pre-btn">
+<a href="https://www.tutorialspoint.com/servlets/servlets-environment-setup.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> Previous Page</a>
+</div>
+<div class="nxt-btn">
+<a href="https://www.tutorialspoint.com/servlets/servlets-first-example.htm">Next Page <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
+</div>
+<div class="clearer"></div>
+<hr>
+<p>A servlet life cycle can be defined as the entire process from its creation till the destruction. The following are the paths followed by a servlet</p>
+<ul class="list">
+<li><p>The servlet is initialized by calling the <b>init ()</b> method.</p></li>
+<li><p>The servlet calls <b>service()</b> method to process a client's request.</p></li>
+<li><p>The servlet is terminated by calling the <b>destroy()</b> method.</p></li>
+<li><p>Finally, servlet is garbage collected by the garbage collector of the JVM.</p></li>
+</ul>
+<p>Now let us discuss the life cycle methods in details.</p>
+<h2>The init() method :</h2>
+<p>The init method is designed to be called only once. It is called when the servlet is first created, and not called again for each user request. So, it is used for one-time initializations, just as with the init method of applets.</p>
+<p>The servlet is normally created when a user first invokes a URL corresponding to the servlet, but you can also specify that the servlet be loaded when the server is first started.</p>
+<p>When a user invokes a servlet, a single instance of each servlet gets created, with each user request resulting in a new thread that is handed off to doGet or doPost as appropriate. The init() method simply creates or loads some data that will be used throughout the life of the servlet.</p>
+<p>The init method definition looks like this:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> init</span><span class="pun">()</span><span class="pln"> </span><span class="kwd">throws</span><span class="pln"> </span><span class="typ">ServletException</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="com">// Initialization code...</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<h2>The service() method :</h2>
+<p>The service() method is the main method to perform the actual task. The servlet container (i.e. web server) calls the service() method to handle requests coming from the client( browsers) and to write the formatted response back to the client.</p>
+<p>Each time the server receives a request for a servlet, the server spawns a new thread and calls service. The service() method checks the HTTP request type (GET, POST, PUT, DELETE, etc.) and calls doGet, doPost, doPut, doDelete, etc. methods as appropriate.</p>
+<p>Here is the signature of this method:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> service</span><span class="pun">(</span><span class="typ">ServletRequest</span><span class="pln"> request</span><span class="pun">,</span><span class="pln"> 
+                    </span><span class="typ">ServletResponse</span><span class="pln"> response</span><span class="pun">)</span><span class="pln"> 
+      </span><span class="kwd">throws</span><span class="pln"> </span><span class="typ">ServletException</span><span class="pun">,</span><span class="pln"> </span><span class="typ">IOException</span><span class="pun">{</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<p>The service () method is called by the container and service method invokes doGet, doPost, doPut, doDelete, etc. methods as appropriate. So you have nothing to do with service() method but you override either doGet() or doPost() depending on what type of request you receive from the client.</p>
+<p>The doGet() and doPost() are most frequently used methods with in each service request. Here is the signature of these two methods.</p>
+<h2>The doGet() Method</h2>
+<p>A GET request results from a normal request for a URL or from an HTML form that has no METHOD specified and it should be handled by doGet() method.</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> doGet</span><span class="pun">(</span><span class="typ">HttpServletRequest</span><span class="pln"> request</span><span class="pun">,</span><span class="pln">
+                  </span><span class="typ">HttpServletResponse</span><span class="pln"> response</span><span class="pun">)</span><span class="pln">
+    </span><span class="kwd">throws</span><span class="pln"> </span><span class="typ">ServletException</span><span class="pun">,</span><span class="pln"> </span><span class="typ">IOException</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="com">// Servlet code</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<h2>The doPost() Method</h2>
+<p>A POST request results from an HTML form that specifically lists POST as the METHOD and it should be handled by doPost() method.</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> doPost</span><span class="pun">(</span><span class="typ">HttpServletRequest</span><span class="pln"> request</span><span class="pun">,</span><span class="pln">
+                   </span><span class="typ">HttpServletResponse</span><span class="pln"> response</span><span class="pun">)</span><span class="pln">
+    </span><span class="kwd">throws</span><span class="pln"> </span><span class="typ">ServletException</span><span class="pun">,</span><span class="pln"> </span><span class="typ">IOException</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="com">// Servlet code</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<h2>The destroy() method :</h2>
+<p>The destroy() method is called only once at the end of the life cycle of a servlet. This method gives your servlet a chance to close database connections, halt background threads, write cookie lists or hit counts to disk, and perform other such cleanup activities.</p>
+<p>After the destroy() method is called, the servlet object is marked for garbage collection. The destroy method definition looks like this:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="pln">  </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> destroy</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="com">// Finalization code...</span><span class="pln">
+  </span><span class="pun">}</span></pre>
+<h2>Architecture Digram:</h2>
+<p>The following figure depicts a typical servlet life-cycle scenario. </p>
+<ul class="list">
+<li><p>First the HTTP requests coming to the server are delegated to the servlet container.</p></li>
+<li><p>The servlet container loads the servlet before invoking the service() method.</p></li>
+<li><p>Then the servlet container handles multiple requests by spawning multiple threads, each thread executing the service() method of a single instance of the servlet.</p></li>
+</ul>
+<img src="./Servlets - Life Cycle_files/servlet-lifecycle.jpg" alt="Servlet Life Cycle">
+<hr>
+<div class="pre-btn">
+<a href="https://www.tutorialspoint.com/servlets/servlets-environment-setup.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> Previous Page</a>
+</div>
+<div class="print-btn center">
+<a href="https://www.tutorialspoint.com/cgi-bin/printpage.cgi" target="_blank"><i class="icon icon-print big-font"></i> Print</a>
+</div>
+<div class="pdf-btn">
+<a href="https://www.tutorialspoint.com/servlets/pdf/servlets-life-cycle.pdf" title="Servlets - Life Cycle" target="_blank"><i class="icon icon-file-pdf-o big-font"></i> PDF</a>
+</div>
+<div class="nxt-btn">
+<a href="https://www.tutorialspoint.com/servlets/servlets-first-example.htm">Next Page <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
+</div>
+<hr>
+<!-- PRINTING ENDS HERE -->
+<div class="bottomgooglead">
+<div class="bottomadtag">Advertisements</div>
+<script type="text/javascript"><!--
+var width = 580;
+var height = 400;
+var format = "580x400_as";
+if( window.innerWidth < 468 ){
+   width = 300;
+   height = 250;
+   format = "300x250_as";
+}
+google_ad_client = "pub-7133395778201029";
+google_ad_width = width;
+google_ad_height = height;
+google_ad_format = format;
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript" src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-3" id="rightbar">
+<div class="simple-ad">
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open(&#39;https://www.facebook.com/sharer.php?u=&#39; + &#39;http://www.tutorialspoint.com/servlets/servlets-life-cycle.htm&#39;,&#39;sharer&#39;,&#39;toolbar=0,status=0,width=626,height=456,top=&#39;+sTop+&#39;,left=&#39;+sLeft);return false;">
+<img src="./Servlets - Life Cycle_files/facebookIcon.jpg" alt="img">
+</a>
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open(&#39;https://twitter.com/share?url=&#39; + &#39;http://www.tutorialspoint.com/servlets/servlets-life-cycle.htm&#39;,&#39;sharer&#39;,&#39;toolbar=0,status=0,width=626,height=456,top=&#39;+sTop+&#39;,left=&#39;+sLeft);return false;">
+<img src="./Servlets - Life Cycle_files/twitterIcon.jpg" alt="img">
+</a>
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open(&#39;https://www.linkedin.com/cws/share?url=&#39; + &#39;http://www.tutorialspoint.com/servlets/servlets-life-cycle.htm&amp;title=&#39;+ document.title,&#39;sharer&#39;,&#39;toolbar=0,status=0,width=626,height=456,top=&#39;+sTop+&#39;,left=&#39;+sLeft);return false;">
+<img src="./Servlets - Life Cycle_files/linkedinIcon.jpg" alt="img">
+</a>
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open(&#39;https://plus.google.com/share?url=http://www.tutorialspoint.com/servlets/servlets-life-cycle.htm&#39;,&#39;sharer&#39;,&#39;toolbar=0,status=0,width=626,height=456,top=&#39;+sTop+&#39;,left=&#39;+sLeft);return false;">
+<img src="./Servlets - Life Cycle_files/googlePlusIcon.jpg" alt="img">
+</a>
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open(&#39;https://www.stumbleupon.com/submit?url=http://www.tutorialspoint.com/servlets/servlets-life-cycle.htm&amp;title=&#39;+ document.title,&#39;sharer&#39;,&#39;toolbar=0,status=0,width=626,height=456,top=&#39;+sTop+&#39;,left=&#39;+sLeft);return false;">
+<img src="./Servlets - Life Cycle_files/StumbleUponIcon.jpg" alt="img">
+</a>
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open(&#39;https://reddit.com/submit?url=http://www.tutorialspoint.com/servlets/servlets-life-cycle.htm&amp;title=&#39;+ document.title,&#39;sharer&#39;,&#39;toolbar=0,status=0,width=626,height=656,top=&#39;+sTop+&#39;,left=&#39;+sLeft);return false;">
+<img src="./Servlets - Life Cycle_files/reddit.jpg" alt="img">
+</a>
+</div>
+<div class="rightgooglead">
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 300;
+google_ad_height = 250;
+google_ad_format = "300x250_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript" src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<div class="rightgooglead">
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 300;
+google_ad_height = 600;
+google_ad_format = "300x600_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript" src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<div class="rightgooglead">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-2537027957187252";
+/* Right Side Ad */
+google_ad_slot = "right_side_ad";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript" src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer-copyright">
+<div class="container">
+<div class="row">
+<div class="col-md-1">
+<a href="https://www.tutorialspoint.com/index.htm" class="logo"> <img alt="Tutorials Point" class="img-responsive" src="./Servlets - Life Cycle_files/logo-footer.png"> </a>
+</div>
+<div class="col-md-4 col-sm-12 col-xs-12">
+   <nav id="sub-menu">
+      <ul>
+         <li><a href="https://www.tutorialspoint.com/about/tutorials_writing.htm">Write for us</a></li>
+         <li><a href="https://www.tutorialspoint.com/about/faq.htm">FAQ's</a></li>
+         <li><a href="https://www.tutorialspoint.com/about/about_helping.htm">Helping</a></li>
+         <li><a href="https://www.tutorialspoint.com/about/contact_us.htm">Contact</a></li>
+      </ul>
+   </nav>
+</div>
+<div class="col-md-3 col-sm-12 col-xs-12">
+<p>© Copyright 2016. All Rights Reserved.</p>
+</div>
+<div class="col-md-4 col-sm-12 col-xs-12">
+   <div class="news-group">
+      <input type="text" class="form-control-foot search" name="textemail" id="textemail" autocomplete="off" placeholder="Enter email for newsletter" onfocus="if (this.value == &#39;Enter email for newsletter...&#39;) {this.value = &#39;&#39;;}" onblur="if (this.value == &#39;&#39;) {this.value = &#39;Enter email for newsletter...&#39;;}">
+      <span class="input-group-btn"> <button class="btn btn-default btn-footer" id="btnemail" type="submit" onclick="javascript:void(0);">go</button> </span>
+      <div id="newsresponse"></div>
+   </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Libs -->
+<script type="text/javascript" src="./Servlets - Life Cycle_files/custom-min.js.download"></script><a class="scroll-to-top visible" href="https://www.tutorialspoint.com/#" id="scrollToTop"><i class="icon icon-chevron-up icon-white"></i></a>
+<script src="./Servlets - Life Cycle_files/urchin.js.download">
+</script>
+<script type="text/javascript">
+_uacct = "UA-232293-6";
+urchinTracker();
+$('.pg-icon').click(function(){
+   $('.wrapLoader').show();
+});
+</script>
+
+
+
+<div class="autocomplete-suggestions " style="top: 441.2px; left: 0px; width: 7px;"></div></body></html>

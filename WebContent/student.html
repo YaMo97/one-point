@@ -1,0 +1,162 @@
+<!--
+	student
+	vagishYaduvanshi
+	
+<span class="text-danger">*</span>
+<span class="text-danger">*</span>
+-->
+
+	<div class="container" id="profileEdit" >
+    	<div class="row">
+            <div class="col-md-6 col-center">   
+            	<div class="card my-5">
+                	<div class="card-block p-4">
+                    	<form action="" name="myForm" ng-controller="studentController" novalidate>
+                            <div class="form-group">
+                                <label for="name">Name <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="basic.full_name" disabled required ng-maxlength="255">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="aadhar">Aadhar No<span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-id-badge"></i>
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="basic.aadhaar_number" disabled >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Id <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                       <i class="fa fa-envelope"></i>
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="basic.email_id" disabled required ng-maxlength="30">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="student_id">Student Id<span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                       <i class="fa fa-id-badge"></i> 
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="basic.student_id" disabled required ng-maxlength="255">
+                                </div>
+                            </div>
+                      
+                            <div class="form-group">
+                                <label for="college">College</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-id-badge"></i>
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="basic.college_name" disabled>
+                            	</div>
+                            </div>
+							<div class="form-group">
+                                <label for="university">University</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-id-badge"></i>
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="basic.university_name" disabled>
+                                </div>
+                            </div>
+                         
+                            <div class="form-group">
+                                <label for="gender">Gender <span class="text-danger">*</span></label><br>
+                                <label class="radio-inline">
+                                    <input type="radio" name="gender" ng-model="basic.gender" value="M"> Male
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="gender" ng-model="basic.gender" value="F"> Female
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio"  name="gender" ng-model="basic.gender" value="2"> Others
+                                </label>                                
+                            </div>
+                            <div ng-if="faculty">
+                           <div class="form-group">
+                                <label for="Department">Department</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-book"></i>
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="basic.department" ng-disabled="editable">
+                                </div>
+                                </div>
+                                <div class="form-group">
+                                <label for="spaecialisaton">Area of Specialisation</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-book"></i>
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="basic.specialisation" ng-disabled="editable">
+                                </div>
+                                </div>
+                                </div>
+                                <div ng-if="student">
+                            <div class="form-group">
+                                <label for="branch">Branch</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-book"></i>
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="basic.branch" ng-disabled="editable">
+                                </div>
+                                </div>
+                                <div class="form-group">
+                                <label for="course">Course</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-book"></i>
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="basic.course" ng-disabled="editable">
+                                </div>
+                                </div>
+                             <div class="form-group">
+                                <label for="start_date">Start Date</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="basic.start_date" ng-disabled="editable">
+                                </div>
+                              
+                                <label for="end_date">End Date</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" class="form-control" ng-model="basic.end_date" ng-disabled="editable">
+                                </div>
+                                </div>
+              
+                           </div>
+                           <div ng-show=editable>
+                        	<button type="button" class="btn btn-theme btn-fab btn-bottom-right" title=Edit profile" ng-click="editable=0">
+                            	<i class="fa fa-edit"></i>
+                            </button>
+                            <button type="button" class="btn btn-theme btn-fab btn-bottom-right-2" title="View professional details" ng-click="pro()">
+                            	<i class="fa fa-eye"></i>
+                            </button>
+                            </div>
+                            <div ng-show=!editable>
+                        	<button type="button" class="btn btn-theme btn-fab btn-bottom-right" title="Update profile" ng-click="save()">
+                            	<i class="fa fa-save"></i>
+                            </button>
+                            </div>
+                        	
+                        	
+                        </form>
+                    </div><!-- /.card-block -->
+                </div><!-- /.card -->
+            </div><!-- /.col -->
+    	</div><!-- /.row -->
+    </div><!-- /.container -->
+</div>

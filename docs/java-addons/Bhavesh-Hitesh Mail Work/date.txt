@@ -1,0 +1,4 @@
+Date dateRequired=availableDate.getDate();
+        availableDateText=String.format(new SimpleDateFormat("dd-MMM-yyyy").format(dateRequired));
+         if(dateRequired.toString().length()==0)
+        {throw new Exception(); }

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="766.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aicte.opvs.views.IndividualController">
+   <children>
+      <AnchorPane prefHeight="120.0" prefWidth="766.0" style="-fx-background-color: #5DADE2;">
+         <children>
+            <Text layoutX="290.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STUDENT/FACULTY" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="88.0" fitWidth="106.0" layoutX="73.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@aicte-logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="home" fitHeight="35.0" fitWidth="37.0" layoutX="8.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@home3.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <TabPane layoutY="120.0" prefHeight="466.0" prefWidth="766.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Student">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EBF5FB;">
+                     <children>
+                        <AnchorPane prefHeight="438.0" prefWidth="251.0" style="-fx-background-color: #5DADE2;">
+                           <children>
+                              <Text layoutX="79.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State" textAlignment="CENTER" wrappingWidth="92.888671875">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Text>
+                              <ComboBox fx:id="studentStateComboBox" layoutX="5.0" layoutY="54.0" onAction="#studentStateComboBoxAction" prefHeight="25.0" prefWidth="240.0" />
+                              <Text layoutX="64.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="University" textAlignment="CENTER" wrappingWidth="122.888671875">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Text>
+                              <ComboBox fx:id="studentUniversityComboBox" layoutX="8.0" layoutY="117.0" onAction="#studentUniversityComboBoxAction" prefHeight="25.0" prefWidth="234.0" />
+                              <JFXButton fx:id="submitButton" layoutX="82.0" layoutY="367.0" onAction="#submitButtonAction" prefHeight="30.0" prefWidth="88.0" style="-fx-background-color: #EBF5FB;" text="Submit">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </JFXButton>
+                              <Text layoutX="64.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="College" textAlignment="CENTER" wrappingWidth="122.888671875">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Text>
+                              <ComboBox fx:id="studentCollegeComboBox" layoutX="8.0" layoutY="183.0" onAction="#studentCollegeComboBoxAction" prefHeight="25.0" prefWidth="234.0" />
+                              <Text layoutX="64.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course" textAlignment="CENTER" wrappingWidth="122.888671875">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Text>
+                              <ComboBox fx:id="courseComboBox" layoutX="9.0" layoutY="251.0" onAction="#courseComboBoxAction" prefHeight="25.0" prefWidth="234.0" />
+                              <Text layoutX="65.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Year" textAlignment="CENTER" wrappingWidth="122.888671875">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Text>
+                              <ComboBox fx:id="yearComboBox" layoutX="9.0" layoutY="314.0" onAction="#yearComboBoxAction" prefHeight="25.0" prefWidth="234.0" />
+                           </children>
+                        </AnchorPane>
+                        <TableView fx:id="studentTable" layoutX="251.0" prefHeight="428.0" prefWidth="514.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="C1" />
+                            <TableColumn prefWidth="75.0" text="C2" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Faculty">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EBF5FB;">
+                     <children>
+                        <AnchorPane prefHeight="438.0" prefWidth="251.0" style="-fx-background-color: #5DADE2;">
+                           <children>
+                              <Text layoutX="79.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State" textAlignment="CENTER" wrappingWidth="92.888671875">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Text>
+                              <ComboBox fx:id="facultyStateComboBox" layoutX="5.0" layoutY="54.0" onAction="#facultyStateComboBoxAction" prefHeight="25.0" prefWidth="240.0" />
+                              <Text layoutX="64.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="University" textAlignment="CENTER" wrappingWidth="122.888671875">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Text>
+                              <ComboBox fx:id="facultyUniversityComboBox" layoutX="8.0" layoutY="117.0" onAction="#facultyUniversityComboBoxAction" prefHeight="25.0" prefWidth="234.0" />
+                              <JFXButton fx:id="facultySubmitButton" layoutX="82.0" layoutY="367.0" onAction="#facultySubmitButtonAction" prefHeight="30.0" prefWidth="88.0" style="-fx-background-color: #EBF5FB;" text="Submit">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </JFXButton>
+                              <Text layoutX="64.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="College" textAlignment="CENTER" wrappingWidth="122.888671875">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Text>
+                              <ComboBox fx:id="facultyCollegeComboBox" layoutX="8.0" layoutY="183.0" onAction="#facultyCollegeComboBoxAction" prefHeight="25.0" prefWidth="234.0" />
+                              <Text layoutX="64.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course" textAlignment="CENTER" wrappingWidth="122.888671875">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Text>
+                              <ComboBox fx:id="facultyCourseComboBox" layoutX="9.0" layoutY="251.0" onAction="#facultyCourseComboBoxAction" prefHeight="25.0" prefWidth="234.0" />
+                              <Text layoutX="65.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Year" textAlignment="CENTER" wrappingWidth="122.888671875">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Text>
+                              <ComboBox fx:id="facultyYearComboBox" layoutX="9.0" layoutY="314.0" onAction="#facultyYearComboBoxActiion" prefHeight="25.0" prefWidth="234.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

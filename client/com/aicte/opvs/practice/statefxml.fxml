@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aicte.opvs.practice.statecontroller">
+   <children>
+      <ToolBar layoutY="-40.0" prefHeight="40.0" prefWidth="1022.0">
+         <items>
+            <Button mnemonicParsing="false" text="ADMIN HOME" />
+         </items>
+      </ToolBar>
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1022.0" style="-fx-background-color: #A8D0F2;">
+         <children>
+            <Text layoutX="91.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State" wrappingWidth="47.13671875">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <JFXComboBox fx:id="statecombo" layoutX="47.0" layoutY="164.0" onAction="#handlestatecombo" prefHeight="25.0" prefWidth="157.0" />
+            <Text layoutX="85.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="District" wrappingWidth="59.13671875">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <JFXComboBox fx:id="districtcombo" layoutX="49.0" layoutY="219.0" onAction="#handledistrictcombo" prefHeight="25.0" prefWidth="152.0" />
+            <Pane layoutX="3.0" layoutY="360.0" prefHeight="221.0" prefWidth="283.0" style="-fx-background-color: #A8D0F2;">
+               <children>
+                  <Text layoutX="83.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IMPORT DATA" wrappingWidth="117.13671875">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <JFXRadioButton layoutX="34.0" layoutY="46.0" text="Student" textFill="#140000">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXRadioButton>
+                  <JFXRadioButton layoutX="156.0" layoutY="46.0" text="Faculty" textFill="#140000">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXRadioButton>
+                  <Text layoutX="26.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Download sample template:" wrappingWidth="171.3369140625" />
+                  <Text layoutX="26.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="File Name :" wrappingWidth="83.2578125" />
+                  <Button layoutX="190.0" layoutY="79.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" style="-fx-background-color: #229954;" text="Download" />
+                  <Button layoutX="190.0" layoutY="120.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" style="-fx-background-color: #229954;" text="Download" />
+                  <JFXTextField layoutX="98.0" layoutY="120.0" prefHeight="25.0" prefWidth="88.0" />
+                  <Button layoutX="76.0" layoutY="170.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" style="-fx-background-color: #229954;" text="Import" />
+               </children>
+            </Pane>
+            <TableView fx:id="tableview1" layoutX="304.0" layoutY="54.0" prefHeight="355.0" prefWidth="708.0" />
+            <Pane layoutX="307.0" layoutY="413.0" prefHeight="168.0" prefWidth="703.0" style="-fx-background-color: #52BE80;">
+               <children>
+                  <Button layoutX="91.0" layoutY="84.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #229954;" text="View " />
+                  <Button layoutX="310.0" layoutY="32.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #229954;" text="Update" />
+                  <Button layoutX="536.0" layoutY="84.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #229954;" text="View All" />
+               </children>
+            </Pane>
+            <Text layoutX="85.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="University" wrappingWidth="59.13671875">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <JFXComboBox fx:id="universitycombo" layoutX="50.0" layoutY="276.0" prefHeight="25.0" prefWidth="152.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

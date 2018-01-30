@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="766.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aicte.opvs.views.EmployeeController">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="766.0" style="-fx-background-color: #EBF5FB;">
+         <children>
+            <AnchorPane layoutY="-1.0" prefHeight="588.0" prefWidth="251.0" style="-fx-background-color: #5DADE2;">
+               <children>
+                  <ImageView fitHeight="113.0" fitWidth="113.0" layoutX="62.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="aicte-logo.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="72.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State" textAlignment="CENTER" wrappingWidth="92.888671875">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="stateComboBox" layoutX="6.0" layoutY="325.0" onAction="#stateComboBoxAction" prefHeight="25.0" prefWidth="240.0" />
+                  <JFXButton fx:id="submitButton" layoutX="75.0" layoutY="413.0" onAction="#submitButtonAction" prefHeight="25.0" prefWidth="101.0" style="-fx-background-color: #EBF5FB;" text="Submit">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </JFXButton>
+                  <ImageView fx:id="homeButton" fitHeight="46.0" fitWidth="48.0" layoutX="6.0" layoutY="8.0" onDragDetected="#homeButtonAction" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="home3.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <Text layoutX="458.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPLOYEE" wrappingWidth="154.0">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Text>
+            <TableView fx:id="employeeTable" layoutX="250.0" layoutY="68.0" prefHeight="519.0" prefWidth="517.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

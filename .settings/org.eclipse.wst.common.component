@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="OnePointVerificationSystem">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/server"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/client"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/resources"/>
+        <property name="context-root" value="OnePointVerificationSystem"/>
+        <property name="java-output-path" value="/OnePointVerificationSystem/build/classes"/>
+    </wb-module>
+</project-modules>

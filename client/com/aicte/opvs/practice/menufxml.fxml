@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aicte.opvs.practice.FXMLDocumentController">
+   <children>
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="1180.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="universitymenu" mnemonicParsing="false" onAction="#handleuniversitymenu" text="University" />
+                  <MenuItem fx:id="collegemenu" mnemonicParsing="false" onAction="#handlecollegemenu" text="College" />
+                  <MenuItem fx:id="employeemenu" mnemonicParsing="false" onAction="#handleemployeemenu" text="Employee" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane fx:id="anchorpaneParent" layoutX="14.0" layoutY="27.0" prefHeight="1000.0" prefWidth="1180.0" />
+      <AnchorPane fx:id="anchorpaneSF" layoutY="29.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="771.0" prefWidth="1050.0">
+         <children>
+            <TabPane layoutY="-2.0" prefHeight="842.0" prefWidth="1022.0" tabClosingPolicy="UNAVAILABLE">
+               <tabs>
+                  <Tab text="                                                                             STUDENT                                                         ">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="213.0">
+                           <children>
+                              <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1022.0" style="-fx-background-color: #A8D0F2;">
+                                 <children>
+                                    <Text layoutX="91.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State" wrappingWidth="47.13671875">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <JFXComboBox fx:id="statecombo" layoutX="46.0" layoutY="81.0" onAction="#handlestatecombo" prefHeight="25.0" prefWidth="157.0" />
+                                    <Text layoutX="85.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="University" wrappingWidth="59.13671875">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <JFXComboBox fx:id="universitycombo" layoutX="46.0" layoutY="138.0" onAction="#handleuniversitycombo" prefHeight="25.0" prefWidth="152.0" />
+                                    <Text layoutX="91.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="College" wrappingWidth="47.13671875">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <JFXComboBox fx:id="collegecombo" layoutX="46.0" layoutY="198.0" onAction="#handlecollegecombo" prefHeight="25.0" prefWidth="152.0" />
+                                    <TableView fx:id="tableview1" layoutX="307.0" layoutY="54.0" prefHeight="355.0" prefWidth="708.0" />
+                                    <Pane layoutX="307.0" layoutY="413.0" prefHeight="168.0" prefWidth="703.0" style="-fx-background-color: #52BE80;">
+                                       <children>
+                                          <Button layoutX="91.0" layoutY="84.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #229954;" text="View " />
+                                          <Button layoutX="310.0" layoutY="32.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #229954;" text="Update" />
+                                          <Button layoutX="536.0" layoutY="84.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #229954;" text="View All" />
+                                       </children>
+                                    </Pane>
+                                    <Button fx:id="submitLogin" layoutX="51.0" layoutY="275.0" mnemonicParsing="false" onAction="#submitButtonAction" prefHeight="25.0" prefWidth="159.0" style="-fx-background-color: #229954;" text="Submit" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="                                                                      FACULTY                                                               ">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="637.0" prefWidth="1022.0">
+                           <children>
+                              <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1022.0" style="-fx-background-color: #A8D0F2;">
+                                 <children>
+                                    <Text layoutX="91.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State" wrappingWidth="47.13671875">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <JFXComboBox fx:id="statecombo1" layoutX="46.0" layoutY="81.0" onAction="#handlestatecombo" prefHeight="25.0" prefWidth="157.0" />
+                                    <Text layoutX="85.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="University" wrappingWidth="59.13671875">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <JFXComboBox fx:id="universitycombo1" layoutX="46.0" layoutY="138.0" onAction="#handleuniversitycombo" prefHeight="25.0" prefWidth="152.0" />
+                                    <Text layoutX="91.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="College" wrappingWidth="47.13671875">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Text>
+                                    <JFXComboBox fx:id="collegecombo1" layoutX="46.0" layoutY="198.0" onAction="#handlecollegecombo" prefHeight="25.0" prefWidth="152.0" />
+                                    <TableView fx:id="tableview11" layoutX="304.0" layoutY="54.0" prefHeight="355.0" prefWidth="708.0" />
+                                    <Pane layoutX="307.0" layoutY="413.0" prefHeight="168.0" prefWidth="703.0" style="-fx-background-color: #52BE80;">
+                                       <children>
+                                          <Button layoutX="91.0" layoutY="84.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #229954;" text="View " />
+                                          <Button layoutX="310.0" layoutY="32.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #229954;" text="Update" />
+                                          <Button layoutX="536.0" layoutY="84.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #229954;" text="View All" />
+                                       </children>
+                                    </Pane>
+                                    <Button layoutX="44.0" layoutY="275.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="145.0" style="-fx-background-color: #229954;" text="Submit" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>

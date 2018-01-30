@@ -1,0 +1,32 @@
+	<div class="container" ng-controller="homeController">
+    	<div class="row">
+            <div class="col-md-6 offset-md-3 mt-3 pt-3 col-center text-center">   
+            	<div class="card">
+                	<div class="card-block">
+                    	<h3>Welcome to AICTE</h3>                    
+            		</div>
+            	</div>
+            </div><!-- /.col -->
+    	</div><!-- /.row -->
+    	<br>
+    	<div class="row" style="color:#BEBEBE;text-align: center;vertical-align: middle;">
+    	
+    	<div class='col-sm-3'></div>
+    	<div class="col-sm-2 btn-primary" style="height:100px;">AADHAR VERIFIED<BR>
+    	<i ng-if="basic.aadhaar_status=='VERIFIED'" class="fa fa-check" style="font-size:50px;color:green"></i>
+    	<i ng-if="basic.aadhaar_status=='REJECTED'" class="fa fa-remove" style="font-size:50px;color:red"></i>
+    	<i ng-if="basic.aadhaar_status=='PENDING'" class="fa fa-warning" style="font-size:50px;color:yellow"></i>
+    	</div>
+    	<div class="col-sm-3 btn-info" style="height:100px;">BANK DETAILS VERIFIED<BR>
+    	<i ng-if="basic.aadhaar_status=='VERIFIED'" class="fa fa-check" style="font-size:50px;color:green"></i>
+    	<i ng-if="basic.aadhaar_status=='REJECTED'" class="fa fa-remove" style="font-size:50px;color:red"></i>
+    	<i ng-if="basic.aadhaar_status=='PENDING'" class="fa fa-warning" style="font-size:50px;color:yellow"></i>
+    	</div>
+    	<div class="col-sm-2 btn-success" style="height:100px;">PAN VERIFIED<BR>
+    	<i ng-if="basic.aadhaar_status=='VERIFIED'" class="fa fa-check" style="font-size:50px;color:green"></i>
+    	<i ng-if="basic.aadhaar_status=='REJECTED'" class="fa fa-remove" style="font-size:50px;color:red"></i>
+    	<i ng-if="basic.aadhaar_status=='PENDING'" class="fa fa-warning" style="font-size:50px;color:yellow"></i>
+    	</div>
+    	
+    	</div>
+    </div><!-- /.container -->

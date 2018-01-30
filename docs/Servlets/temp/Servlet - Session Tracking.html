@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://www.tutorialspoint.com/servlets/servlets-session-tracking.htm -->
+<html class=" js no-touch csstransforms3d csstransitions"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Basic -->
+
+<title>Servlet - Session Tracking</title>
+<meta name="description" content="Servlet Session Tracking - Learning Java Servlets in simple and easy steps using this beginner&#39;s tutorial containing basic to advanced knowledge of Java Servlet Technology including Form Data, HTTP Request Header, Response Header, Status Codes, Cookies Handling and Session Tracking.">
+<meta name="keywords" content="Servlets, Tutorials, Learning, Beginners, Basics, Environment, Life Cycle, Examples, Client Request, Server Response, Http Codes, Writing Filters, Exceptions, Cookies, Sessions, Database Access, File Uploading, File Uploading, Internationalization.">
+<!--<base href="https://www.tutorialspoint.com/">--><base href=".">
+<link rel="shortcut icon" href="https://www.tutorialspoint.com/favicon.ico" type="image/x-icon">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="robots" content="index, follow">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="tutorialspoint.com">
+<script type="text/javascript" src="./Servlet - Session Tracking_files/script-min-v4.js.download"></script>
+<link rel="stylesheet" href="./Servlet - Session Tracking_files/style-min.css">
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #d42426 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #d42426 !important;}
+.submenu-item{ border-bottom: 2px solid #d42426 !important; border-top: 2px solid #d42426 !important }
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+</head>
+<body onload="prettyPrint()">
+<div class="wrapLoader">
+   <div class="imgLoader">
+      <img src="./Servlet - Session Tracking_files/loading-cg.gif" alt="" width="70" height="70">
+   </div>
+</div>
+<header>
+   <div class="container">			
+      <h1 class="logo">
+      <a href="https://www.tutorialspoint.com/index.htm" title="tutorialspoint">
+      <img alt="tutorialspoint" src="./Servlet - Session Tracking_files/logo.png">
+      </a>
+      </h1>			
+      <nav>
+         <ul class="nav nav-pills nav-top">
+            <li><a href="https://www.tutorialspoint.com/about/about_careers.htm" style="background: #fffb09; font-weight: bold;"><i class="icon icon-suitcase"></i> Jobs</a></li>
+            <li> <a href="http://www.sendfiles.net/"><i class="fa fa-send"></i> &nbsp;SENDFiles</a> </li>
+            <li> <a href="https://www.tutorialspoint.com/whiteboard.htm"><img src="./Servlet - Session Tracking_files/image-editor.png" alt="Whiteboard" title="Whiteboard"> &nbsp;Whiteboard</a> </li>
+            <li> <a href="https://www.tutorialspoint.com/netmeeting.php"><i class="fa-camera"></i> &nbsp;Net Meeting</a> </li>
+            <li> <a href="https://www.tutorialspoint.com/online_dev_tools.htm"> <i class="dev-tools-menu" style="opacity:.5"></i> Tools </a> </li>
+            <li> <a href="https://www.tutorialspoint.com/articles/index.php"><i class="icon icon-file-text-o"></i> &nbsp;Articles</a> </li>            
+            <li class="top-icons">
+              <ul class="social-icons">
+              <li class="facebook"><a href="https://www.facebook.com/tutorialspointindia" target="_blank" data-placement="bottom" title="tutorialspoint @ Facebook">Facebook</a></li>
+              <li class="googleplus"><a href="https://plus.google.com/u/0/116678774017490391259/posts" target="_blank" data-placement="bottom" title="tutorialspoint @ Google+">Google+</a></li>
+              <li class="twitter"><a href="https://www.twitter.com/tutorialspoint" target="_blank" data-placement="bottom" title="tutorialspoint @ Twitter">Twitter</a></li>
+              <li class="linkedin"><a href="https://www.linkedin.com/company/tutorialspoint" target="_blank" data-placement="bottom" title="tutorialspoint @ Linkedin">Linkedin</a></li>
+              <li class="youtube"><a href="https://www.youtube.com/channel/UCVLbzhxVTiTLiVKeGV7WEBg" target="_blank" data-placement="bottom" title="tutorialspoint YouTube">YouTube</a></li>
+              </ul>
+           </li>
+         </ul>
+      </nav>
+         <!-- search code here  --> 
+      <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse" id="pull" style="top: 6136.4px!important"> <i class="icon icon-bars"></i> </button>
+   </div>
+  
+   <div class="navbar nav-main">
+      <div class="container">
+         <nav class="nav-main mega-menu">
+            <ul class="nav nav-pills nav-main" id="mainMenu">
+               <li class="dropdown no-sub-menu"> <a class="dropdown" href="https://www.tutorialspoint.com/index.htm"><i class="icon icon-home"></i> Home</a> </li>   
+               <li class="dropdown" id="liTL"><a class="dropdown" href="javascript:void(0);"><span class="tut-lib"> Tutorials Library <i class="fa-caret-down"></i></span></a></li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="https://www.tutorialspoint.com/codingground.htm"><i class="fa-code"></i> Coding Ground </a> </li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="https://www.tutorialspoint.com/tutor_connect/index.php"><i class="fa-user"> </i> Tutor Connect</a></li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="https://www.tutorialspoint.com/videotutorials/index.htm"><i class="fa-toggle-right"></i> Videos </a></li>
+               <li class="dropdown no-sub-menu">
+                  <div class="searchform-popup">
+                     <input class="header-search-box" type="text" id="search-string" name="q" placeholder="Search your favorite tutorials..." onfocus="if (this.value == &#39;Search your favorite tutorials...&#39;) {this.value = &#39;&#39;;}" onblur="if (this.value == &#39;&#39;) {this.value = &#39;Search your favorite tutorials...&#39;;}" autocomplete="off">
+                     <div class="magnifying-glass"><i class="icon-search"></i> Search </div>
+                 </div>
+               </li>
+            </ul>
+         </nav>
+         <div class="submenu-item sub-main-menu" id="top-sub-menu"></div>
+         
+      </div>
+   </div>	
+</header>
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+<div class="col-md-2">
+<aside class="sidebar">
+<div class="mini-logo">
+<img src="./Servlet - Session Tracking_files/servlets-mini-logo.jpg" alt="Servlets Tutorial">
+</div>
+<ul class="nav nav-list primary left-menu">
+<li class="heading">Servlets Tutorial</li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/index.htm">Servlets - Home</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets_overview.htm">Servlets - Overview</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-environment-setup.htm">Servlets - Environment Setup</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-life-cycle.htm">Servlets - Life Cycle</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-first-example.htm">Servlets - Examples</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-form-data.htm">Servlets - Form Data</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-client-request.htm">Servlets - Client Request</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-server-response.htm">Servlets - Server Response</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-http-status-codes.htm">Servlets - Http Codes</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-writing-filters.htm">Servlets - Writing Filters</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-exception-handling.htm">Servlets - Exceptions</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-cookies-handling.htm">Servlets - Cookies Handling</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-session-tracking.htm" style="background-color: rgb(214, 214, 214);">Servlets - Session Tracking</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-database-access.htm">Servlets - Database Access</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-file-uploading.htm">Servlets - File Uploading</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-handling-date.htm">Servlets - Handling Date</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-page-redirect.htm">Servlets - Page Redirect</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-hits-counter.htm">Servlets - Hits Counter</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-auto-refresh.htm">Servlets - Auto Refresh</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-sending-email.htm">Servlets - Sending Email</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-packaging.htm">Servlets - Packaging</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-debugging.htm">Servlets - Debugging</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/servlets/servlets-internationalization.htm">Servlets - Internationalization</a></li>
+</ul>
+<ul class="nav nav-list primary left-menu">
+<li class="heading">Servlet Useful Resources</li>
+<li><a href="https://www.tutorialspoint.com/servlets/servlets-questions-answers.htm">Servlets - Questions and Answers</a></li>
+<li><a href="https://www.tutorialspoint.com/servlets/servlets-quick-guide.htm">Servlets - Quick Guide</a></li>
+<li><a href="https://www.tutorialspoint.com/servlets/servlets-useful-resources.htm">Servlets - Useful Resources</a></li>
+<li><a href="https://www.tutorialspoint.com/servlets/servlets-discussion.htm">Servlets - Discussion</a></li>
+</ul>
+
+<ul class="nav nav-list primary push-bottom left-menu special">
+<li class="sreading">Selected Reading</li>
+<li><a target="_top" href="https://www.tutorialspoint.com/developers_best_practices/index.htm">Developer's Best Practices</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/questions_and_answers.htm">Questions and Answers</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/effective_resume_writing.htm">Effective Resume Writing</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/hr_interview_questions/index.htm">HR Interview Questions</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/computer_glossary.htm">Computer Glossary</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/computer_whoiswho.htm">Who is Who</a></li>
+</ul>
+ 
+</aside>
+</div>
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+<div class="col-md-7 middle-col">
+<h1>Servlets - Session Tracking</h1>
+<div class="topgooglead">
+<hr>
+<div style="padding-bottom:5px;padding-left:10px;">Advertisements</div>
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "image";
+google_ad_channel = "";
+//--></script>
+<script type="text/javascript" src="https://pagead2.googlesyndication.com/pagead/show_ads.js"> 
+</script>
+</div>
+<hr>
+<div class="pre-btn">
+<a href="https://www.tutorialspoint.com/servlets/servlets-cookies-handling.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> Previous Page</a>
+</div>
+<div class="nxt-btn">
+<a href="https://www.tutorialspoint.com/servlets/servlets-database-access.htm">Next Page <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
+</div>
+<div class="clearer"></div>
+<hr>
+<p>HTTP is a "stateless" protocol which means each time a client retrieves a Web page, the client opens a separate connection to the Web server and the server automatically does not keep any record of previous client request.</p>
+<p>Still there are following three ways to maintain session between web client and web server:</p>
+<h2>Cookies:</h2>
+<p>A webserver can assign a unique session ID as a cookie to each web client and for subsequent requests from the client they can be recognized using the recieved cookie.</p>
+<p>This may not be an effective way because many time browser does not support a cookie, so I would not recommend to use this procedure to maintain the sessions.</p>
+<h2>Hidden Form Fields:</h2>
+<p>A web server can send a hidden HTML form field  along with a unique session ID as follows:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"hidden"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"sessionid"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"12345"</span><span class="tag">&gt;</span></pre>
+<p>This entry means that, when the form is submitted, the specified name and value are automatically included in the GET or POST data. Each time when web browser sends request back, then session_id value can be used to keep the track of different web browsers.</p>
+<p>This could be an effective way of keeping track of the session but clicking on a regular (&lt;A HREF...&gt;) hypertext link does not result in a form submission, so hidden form fields also cannot support general session tracking.</p>
+<h2>URL Rewriting:</h2>
+<p>You can append some extra data on the end of each URL that identifies the session, and the server can associate that session identifier with data it has stored about that session.</p>
+<p>For example, with http://tutorialspoint.com/file.htm;sessionid=12345, the session identifier is attached as sessionid=12345 which can be accessed at the web server to identify the client.</p>
+<p>URL rewriting is a better way to maintain sessions and works for the browsers when they don't support cookies but here drawback is that you would have generate every URL dynamically to assign a session ID though page is simple static HTML page.</p>
+<h2>The HttpSession Object:</h2>
+<p>Apart from the above mentioned three ways, servlet provides HttpSession Interface which provides a way to identify a user across more than one page request or visit to a Web site and to store information about that user.</p>
+<p>The servlet container uses this interface to create a session between an HTTP client and an HTTP server. The session persists for a specified time period, across more than one connection or page request from the user.</p>
+<p>You would get HttpSession object by calling the public method <b>getSession()</b> of HttpServletRequest, as below:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="typ">HttpSession</span><span class="pln"> session </span><span class="pun">=</span><span class="pln"> request</span><span class="pun">.</span><span class="pln">getSession</span><span class="pun">();</span></pre>
+<p>You need to call <i>request.getSession()</i> before you send any document content to the client. Here is a summary of the important methods available through HttpSession object:</p>
+<table class="table table-bordered">
+<tbody><tr><th style="width:5%">S.N.</th><th>Method &amp; Description</th></tr>
+<tr><td>1</td><td><p><b>public Object getAttribute(String name)</b></p>
+<p>This method returns the object bound with the specified name in this session, or null if no object is bound under the name.</p></td></tr>
+<tr><td>2</td><td><p><b>public Enumeration getAttributeNames()</b></p>
+<p>This method returns an Enumeration of String objects containing the names of all the objects bound to this session.</p></td></tr>
+<tr><td>3</td><td><p><b>public long getCreationTime()</b></p>
+<p>This method returns the time when this session was created, measured in milliseconds since midnight January 1, 1970 GMT.</p></td></tr>
+<tr><td>4</td><td><p><b>public String getId()</b></p>
+<p>This method returns a string containing the unique identifier assigned to this session.</p></td></tr>
+<tr><td>5</td><td><p><b>public long getLastAccessedTime()</b></p>
+<p>This method returns the last time the client sent a request associated with this session, as the number of milliseconds since midnight January 1, 1970 GMT.</p></td></tr>
+<tr><td>6</td><td><p><b>public int getMaxInactiveInterval()</b></p>
+<p>This method returns the maximum time interval, in seconds, that the servlet container will keep this session open between client accesses.</p></td></tr>
+<tr><td>7</td><td><p><b>public void invalidate()</b></p>
+<p>This method  invalidates this session and unbinds any objects bound to it.</p></td></tr>
+<tr><td>8</td><td><p><b>public boolean isNew(</b></p>
+<p>This method returns true if the client does not yet know about the session or if the client chooses not to join the session.</p></td></tr>
+<tr><td>9</td><td><p><b>public void removeAttribute(String name)</b></p>
+<p>This method removes the object bound with the specified name from this session.</p></td></tr>
+<tr><td>10</td><td><p><b>public void setAttribute(String name, Object value) </b></p>
+<p>This method  binds an object to this session, using the name specified.</p></td></tr>
+<tr><td>11</td><td><p><b>public void setMaxInactiveInterval(int interval)</b></p>
+<p>This method specifies the time, in seconds, between client requests before the servlet container will invalidate this session.</p></td></tr>
+</tbody></table>
+<h2>Session Tracking Example:</h2>
+<p>This example describes how to use the HttpSession object to find out the creation time and the last-accessed time for a session. We would associate a new session with the request if one does not already exist.</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="com">// Import required java libraries</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">io</span><span class="pun">.*;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">servlet</span><span class="pun">.*;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> javax</span><span class="pun">.</span><span class="pln">servlet</span><span class="pun">.</span><span class="pln">http</span><span class="pun">.*;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">util</span><span class="pun">.*;</span><span class="pln">
+ 
+</span><span class="com">// Extend HttpServlet class</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">SessionTrack</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">HttpServlet</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+ 
+  </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> doGet</span><span class="pun">(</span><span class="typ">HttpServletRequest</span><span class="pln"> request</span><span class="pun">,</span><span class="pln">
+                    </span><span class="typ">HttpServletResponse</span><span class="pln"> response</span><span class="pun">)</span><span class="pln">
+            </span><span class="kwd">throws</span><span class="pln"> </span><span class="typ">ServletException</span><span class="pun">,</span><span class="pln"> </span><span class="typ">IOException</span><span class="pln">
+  </span><span class="pun">{</span><span class="pln">
+      </span><span class="com">// Create a session object if it is already not  created.</span><span class="pln">
+      </span><span class="typ">HttpSession</span><span class="pln"> session </span><span class="pun">=</span><span class="pln"> request</span><span class="pun">.</span><span class="pln">getSession</span><span class="pun">(</span><span class="kwd">true</span><span class="pun">);</span><span class="pln">
+      </span><span class="com">// Get session creation time.</span><span class="pln">
+      </span><span class="typ">Date</span><span class="pln"> createTime </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="pln">session</span><span class="pun">.</span><span class="pln">getCreationTime</span><span class="pun">());</span><span class="pln">
+      </span><span class="com">// Get last access time of this web page.</span><span class="pln">
+      </span><span class="typ">Date</span><span class="pln"> lastAccessTime </span><span class="pun">=</span><span class="pln"> 
+                        </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(</span><span class="pln">session</span><span class="pun">.</span><span class="pln">getLastAccessedTime</span><span class="pun">());</span><span class="pln">
+
+      </span><span class="typ">String</span><span class="pln"> title </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Welcome Back to my website"</span><span class="pun">;</span><span class="pln">
+      </span><span class="typ">Integer</span><span class="pln"> visitCount </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Integer</span><span class="pun">(</span><span class="lit">0</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">String</span><span class="pln"> visitCountKey </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">String</span><span class="pun">(</span><span class="str">"visitCount"</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">String</span><span class="pln"> userIDKey </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">String</span><span class="pun">(</span><span class="str">"userID"</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">String</span><span class="pln"> userID </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">String</span><span class="pun">(</span><span class="str">"ABCD"</span><span class="pun">);</span><span class="pln">
+
+      </span><span class="com">// Check if this is new comer on your web page.</span><span class="pln">
+      </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">session</span><span class="pun">.</span><span class="pln">isNew</span><span class="pun">()){</span><span class="pln">
+         title </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Welcome to my website"</span><span class="pun">;</span><span class="pln">
+         session</span><span class="pun">.</span><span class="pln">setAttribute</span><span class="pun">(</span><span class="pln">userIDKey</span><span class="pun">,</span><span class="pln"> userID</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         visitCount </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Integer</span><span class="pun">)</span><span class="pln">session</span><span class="pun">.</span><span class="pln">getAttribute</span><span class="pun">(</span><span class="pln">visitCountKey</span><span class="pun">);</span><span class="pln">
+         visitCount </span><span class="pun">=</span><span class="pln"> visitCount </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln">
+         userID </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="typ">String</span><span class="pun">)</span><span class="pln">session</span><span class="pun">.</span><span class="pln">getAttribute</span><span class="pun">(</span><span class="pln">userIDKey</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+      session</span><span class="pun">.</span><span class="pln">setAttribute</span><span class="pun">(</span><span class="pln">visitCountKey</span><span class="pun">,</span><span class="pln">  visitCount</span><span class="pun">);</span><span class="pln">
+
+      </span><span class="com">// Set response content type</span><span class="pln">
+      response</span><span class="pun">.</span><span class="pln">setContentType</span><span class="pun">(</span><span class="str">"text/html"</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">PrintWriter</span><span class="pln"> </span><span class="kwd">out</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> response</span><span class="pun">.</span><span class="pln">getWriter</span><span class="pun">();</span><span class="pln">
+
+      </span><span class="typ">String</span><span class="pln"> docType </span><span class="pun">=</span><span class="pln">
+      </span><span class="str">"&lt;!doctype html public \"-//w3c//dtd html 4.0 "</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+      </span><span class="str">"transitional//en\"&gt;\n"</span><span class="pun">;</span><span class="pln">
+      </span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">docType </span><span class="pun">+</span><span class="pln">
+                </span><span class="str">"&lt;html&gt;\n"</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                </span><span class="str">"&lt;head&gt;&lt;title&gt;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> title </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;/title&gt;&lt;/head&gt;\n"</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                </span><span class="str">"&lt;body bgcolor=\"#f0f0f0\"&gt;\n"</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                </span><span class="str">"&lt;h1 align=\"center\"&gt;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> title </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;/h1&gt;\n"</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                 </span><span class="str">"&lt;h2 align=\"center\"&gt;Session Infomation&lt;/h2&gt;\n"</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                </span><span class="str">"&lt;table border=\"1\" align=\"center\"&gt;\n"</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                </span><span class="str">"&lt;tr bgcolor=\"#949494\"&gt;\n"</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                </span><span class="str">"  &lt;th&gt;Session info&lt;/th&gt;&lt;th&gt;value&lt;/th&gt;&lt;/tr&gt;\n"</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                </span><span class="str">"&lt;tr&gt;\n"</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                </span><span class="str">"  &lt;td&gt;id&lt;/td&gt;\n"</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                </span><span class="str">"  &lt;td&gt;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> session</span><span class="pun">.</span><span class="pln">getId</span><span class="pun">()</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;/td&gt;&lt;/tr&gt;\n"</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                </span><span class="str">"&lt;tr&gt;\n"</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                </span><span class="str">"  &lt;td&gt;Creation Time&lt;/td&gt;\n"</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                </span><span class="str">"  &lt;td&gt;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> createTime </span><span class="pun">+</span><span class="pln"> 
+                </span><span class="str">"  &lt;/td&gt;&lt;/tr&gt;\n"</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                </span><span class="str">"&lt;tr&gt;\n"</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                </span><span class="str">"  &lt;td&gt;Time of Last Access&lt;/td&gt;\n"</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                </span><span class="str">"  &lt;td&gt;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> lastAccessTime </span><span class="pun">+</span><span class="pln"> 
+                </span><span class="str">"  &lt;/td&gt;&lt;/tr&gt;\n"</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                </span><span class="str">"&lt;tr&gt;\n"</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                </span><span class="str">"  &lt;td&gt;User ID&lt;/td&gt;\n"</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                </span><span class="str">"  &lt;td&gt;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> userID </span><span class="pun">+</span><span class="pln"> 
+                </span><span class="str">"  &lt;/td&gt;&lt;/tr&gt;\n"</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                </span><span class="str">"&lt;tr&gt;\n"</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                </span><span class="str">"  &lt;td&gt;Number of visits&lt;/td&gt;\n"</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                </span><span class="str">"  &lt;td&gt;"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> visitCount </span><span class="pun">+</span><span class="pln"> </span><span class="str">"&lt;/td&gt;&lt;/tr&gt;\n"</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                </span><span class="str">"&lt;/table&gt;\n"</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                </span><span class="str">"&lt;/body&gt;&lt;/html&gt;"</span><span class="pun">);</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<p>Compile above servlet  <b>SessionTrack</b> and create appropriate entry in web.xml file. Now running <i>http://localhost:8080/SessionTrack</i> would display the following result when you would run for the first time:</p>
+<pre class="result notranslate"><h1 align="center">Welcome to my website</h1>
+<h2 align="center">Session Infomation</h2>
+<table cellpadding="5" class="table table-bordered">
+<tbody><tr bgcolor="#949494">
+  <th>Session info</th><th>value</th></tr>
+<tr>
+  <td>id</td>
+  <td>0AE3EC93FF44E3C525B4351B77ABB2D5</td></tr>
+<tr>
+  <td>Creation Time</td>
+  <td>Tue Jun 08 17:26:40 GMT+04:00 2010  </td></tr>
+<tr>
+  <td>Time of Last Access</td>
+  <td>Tue Jun 08 17:26:40 GMT+04:00 2010  </td></tr>
+<tr>
+  <td>User ID</td>
+  <td>ABCD  </td></tr>
+<tr>
+  <td>Number of visits</td>
+  <td>0</td></tr>
+</tbody></table>
+</pre>
+<p>Now try to run the same servlet for second time, it would display following result.</p>
+<pre class="result notranslate"><h1 align="center">Welcome Back to my website</h1>
+<h2 align="center">Session Infomation</h2>
+<table cellpadding="5" class="table table-bordered">
+<tbody><tr bgcolor="#949494">
+  <th>info type</th><th>value</th></tr>
+<tr>
+  <td>id</td>
+  <td>0AE3EC93FF44E3C525B4351B77ABB2D5</td></tr>
+<tr>
+  <td>Creation Time</td>
+  <td>Tue Jun 08 17:26:40 GMT+04:00 2010  </td></tr>
+<tr>
+  <td>Time of Last Access</td>
+  <td>Tue Jun 08 17:26:40 GMT+04:00 2010  </td></tr>
+<tr>
+  <td>User ID</td>
+  <td>ABCD  </td></tr>
+<tr>
+  <td>Number of visits</td>
+  <td>1</td></tr>
+</tbody></table>
+</pre>
+<h2>Deleting Session Data:</h2>
+<p>When you are done with a user's session data, you have several options:</p>
+<ul class="list">
+<li><p><b>Remove a particular attribute:</b>  You can call <i>public void removeAttribute(String name)</i> method to delete the value associated with a particular key.</p></li>
+<li><p><b>Delete the whole session:</b> You can call <i>public void invalidate()</i> method to discard an entire session.</p></li>
+<li><p><b>Setting Session timeout:</b> You can call <i>public void setMaxInactiveInterval(int interval)</i> method to set the timeout for a session individually.</p></li>
+<li><p><b>Log the user out:</b> The servers that support servlets 2.4, you can call <b>logout</b> to log the client out of the Web server and invalidate all sessions belonging to all the users.</p></li>
+<li><p><b>web.xml Configuration:</b> If you are using Tomcat, apart from the above mentioned methods, you can configure session time out in web.xml file as follows.</p></li>
+</ul>
+<pre class="prettyprint notranslate prettyprinted"><span class="pln">  </span><span class="tag">&lt;session-config&gt;</span><span class="pln">
+    </span><span class="tag">&lt;session-timeout&gt;</span><span class="pln">15</span><span class="tag">&lt;/session-timeout&gt;</span><span class="pln">
+  </span><span class="tag">&lt;/session-config&gt;</span></pre>
+<p>The timeout is expressed as minutes, and overrides the default timeout which is 30 minutes in Tomcat.</p>
+<p>The getMaxInactiveInterval( ) method in a servlet returns the timeout period for that session in seconds. So if your session is configured in web.xml for 15 minutes, getMaxInactiveInterval( ) returns 900.</p>
+<hr>
+<div class="pre-btn">
+<a href="https://www.tutorialspoint.com/servlets/servlets-cookies-handling.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> Previous Page</a>
+</div>
+<div class="print-btn center">
+<a href="https://www.tutorialspoint.com/cgi-bin/printpage.cgi" target="_blank"><i class="icon icon-print big-font"></i> Print</a>
+</div>
+<div class="pdf-btn">
+<a href="https://www.tutorialspoint.com/servlets/pdf/servlets-session-tracking.pdf" title="Servlet - Session Tracking" target="_blank"><i class="icon icon-file-pdf-o big-font"></i> PDF</a>
+</div>
+<div class="nxt-btn">
+<a href="https://www.tutorialspoint.com/servlets/servlets-database-access.htm">Next Page <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
+</div>
+<hr>
+<!-- PRINTING ENDS HERE -->
+<div class="bottomgooglead">
+<div class="bottomadtag">Advertisements</div>
+<script type="text/javascript"><!--
+var width = 580;
+var height = 400;
+var format = "580x400_as";
+if( window.innerWidth < 468 ){
+   width = 300;
+   height = 250;
+   format = "300x250_as";
+}
+google_ad_client = "pub-7133395778201029";
+google_ad_width = width;
+google_ad_height = height;
+google_ad_format = format;
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript" src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-3" id="rightbar">
+<div class="simple-ad">
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open(&#39;https://www.facebook.com/sharer.php?u=&#39; + &#39;http://www.tutorialspoint.com/servlets/servlets-session-tracking.htm&#39;,&#39;sharer&#39;,&#39;toolbar=0,status=0,width=626,height=456,top=&#39;+sTop+&#39;,left=&#39;+sLeft);return false;">
+<img src="./Servlet - Session Tracking_files/facebookIcon.jpg" alt="img">
+</a>
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open(&#39;https://twitter.com/share?url=&#39; + &#39;http://www.tutorialspoint.com/servlets/servlets-session-tracking.htm&#39;,&#39;sharer&#39;,&#39;toolbar=0,status=0,width=626,height=456,top=&#39;+sTop+&#39;,left=&#39;+sLeft);return false;">
+<img src="./Servlet - Session Tracking_files/twitterIcon.jpg" alt="img">
+</a>
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open(&#39;https://www.linkedin.com/cws/share?url=&#39; + &#39;http://www.tutorialspoint.com/servlets/servlets-session-tracking.htm&amp;title=&#39;+ document.title,&#39;sharer&#39;,&#39;toolbar=0,status=0,width=626,height=456,top=&#39;+sTop+&#39;,left=&#39;+sLeft);return false;">
+<img src="./Servlet - Session Tracking_files/linkedinIcon.jpg" alt="img">
+</a>
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open(&#39;https://plus.google.com/share?url=http://www.tutorialspoint.com/servlets/servlets-session-tracking.htm&#39;,&#39;sharer&#39;,&#39;toolbar=0,status=0,width=626,height=456,top=&#39;+sTop+&#39;,left=&#39;+sLeft);return false;">
+<img src="./Servlet - Session Tracking_files/googlePlusIcon.jpg" alt="img">
+</a>
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open(&#39;https://www.stumbleupon.com/submit?url=http://www.tutorialspoint.com/servlets/servlets-session-tracking.htm&amp;title=&#39;+ document.title,&#39;sharer&#39;,&#39;toolbar=0,status=0,width=626,height=456,top=&#39;+sTop+&#39;,left=&#39;+sLeft);return false;">
+<img src="./Servlet - Session Tracking_files/StumbleUponIcon.jpg" alt="img">
+</a>
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open(&#39;https://reddit.com/submit?url=http://www.tutorialspoint.com/servlets/servlets-session-tracking.htm&amp;title=&#39;+ document.title,&#39;sharer&#39;,&#39;toolbar=0,status=0,width=626,height=656,top=&#39;+sTop+&#39;,left=&#39;+sLeft);return false;">
+<img src="./Servlet - Session Tracking_files/reddit.jpg" alt="img">
+</a>
+</div>
+<div class="rightgooglead">
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 300;
+google_ad_height = 250;
+google_ad_format = "300x250_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript" src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<div class="rightgooglead">
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 300;
+google_ad_height = 600;
+google_ad_format = "300x600_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript" src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<div class="rightgooglead">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-2537027957187252";
+/* Right Side Ad */
+google_ad_slot = "right_side_ad";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript" src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer-copyright">
+<div class="container">
+<div class="row">
+<div class="col-md-1">
+<a href="https://www.tutorialspoint.com/index.htm" class="logo"> <img alt="Tutorials Point" class="img-responsive" src="./Servlet - Session Tracking_files/logo-footer.png"> </a>
+</div>
+<div class="col-md-4 col-sm-12 col-xs-12">
+   <nav id="sub-menu">
+      <ul>
+         <li><a href="https://www.tutorialspoint.com/about/tutorials_writing.htm">Write for us</a></li>
+         <li><a href="https://www.tutorialspoint.com/about/faq.htm">FAQ's</a></li>
+         <li><a href="https://www.tutorialspoint.com/about/about_helping.htm">Helping</a></li>
+         <li><a href="https://www.tutorialspoint.com/about/contact_us.htm">Contact</a></li>
+      </ul>
+   </nav>
+</div>
+<div class="col-md-3 col-sm-12 col-xs-12">
+<p>© Copyright 2016. All Rights Reserved.</p>
+</div>
+<div class="col-md-4 col-sm-12 col-xs-12">
+   <div class="news-group">
+      <input type="text" class="form-control-foot search" name="textemail" id="textemail" autocomplete="off" placeholder="Enter email for newsletter" onfocus="if (this.value == &#39;Enter email for newsletter...&#39;) {this.value = &#39;&#39;;}" onblur="if (this.value == &#39;&#39;) {this.value = &#39;Enter email for newsletter...&#39;;}">
+      <span class="input-group-btn"> <button class="btn btn-default btn-footer" id="btnemail" type="submit" onclick="javascript:void(0);">go</button> </span>
+      <div id="newsresponse"></div>
+   </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Libs -->
+<script type="text/javascript" src="./Servlet - Session Tracking_files/custom-min.js.download"></script><a class="scroll-to-top visible" href="https://www.tutorialspoint.com/#" id="scrollToTop"><i class="icon icon-chevron-up icon-white"></i></a>
+<script src="./Servlet - Session Tracking_files/urchin.js.download">
+</script>
+<script type="text/javascript">
+_uacct = "UA-232293-6";
+urchinTracker();
+$('.pg-icon').click(function(){
+   $('.wrapLoader').show();
+});
+</script>
+
+
+
+<div class="autocomplete-suggestions " style="top: 6188.4px; left: 0px; width: 7px;"></div></body></html>

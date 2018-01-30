@@ -1,0 +1,27 @@
+NPCI MySQL Server
+Host = localhost
+port = 3309
+BASEDIR="C:\Program Files\MySQL"
+DATADIR="F:\Workspace\MySQL\NPCI\data"
+
+1. 	Start Server
+
+	"C:\Program Files\MySQL\bin\mysqld" --defaults-file="C:\Program Files\MySQL\my-npci.ini"
+	
+		or 
+
+	Start Windows Service - MySQL3309
+
+2. 	Connect Client
+
+	"C:\Program Files\MySQL\bin\mysql" --port=3309 -u user -p
+	Enter Password : user
+
+3. 	Shutdown Server
+
+	"C:\Program Files\MySQL\bin\mysqladmin" --port=3309 -u user -p shutdown
+	Enter Password : user
+
+		or 
+
+	Stop Windows Service - MySQL3309

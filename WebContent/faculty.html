@@ -1,0 +1,41 @@
+<!--
+faculty
+Vagish Yaduvanshi
+-->
+<form name="facultyForm" class="login-box animated fadeInUp" ng-controller="facultyController">
+			  <div class="box-header">
+                <h2>Basic Profile</h2>
+            </div>
+                <label for="Name">Name</label>
+                <input type="text" ng-model="faculty.name" disabled>
+                <br/>
+                <label for="Email">Email</label>                            
+                <input type="text" ng-model="faculty.email" disabled>
+                <br/>
+                <label for="Faculty ID">Faculty ID</label>
+                <input type="text" ng-model="faculty.Id" disabled>
+                <br/>
+                <label for="University ID">University ID</label>
+                <input type="text" ng-model="faculty.universityId" disabled>
+                <br/>      
+                <label for="College Id">College ID</label>
+                <input type="text" ng-model="faculty.collegeId" disabled>
+                <br/>       
+                <label for="Course">Course</label>
+                <input type="text" ng-model="faculty.course" disabled>
+                <br/>       
+                <label for="Branch">Branch</label>
+                <input type="text" ng-model="faculty.branch" disabled>
+                 <br/>       
+                <label for="Start Date">Start Date</label>                       
+                <input type="date" ng-model="faculty.startDate" ng-class="{disabled:editable}">
+                 <br/>      
+                <label for="End Date">Expected End Date</label>
+                <input type="date" ng-model="faculty.endDate" ng-class="{disabled:editable}">
+                <br/>
+                <button type="button" class="btn btn-primary btn-fab btn-floating-bottom-right-2" ng-click="viewProfessional()" title="View Profesional Details"><i class="fa fa-eye"></i></button>
+                <button type="button" class="btn btn-danger btn-fab btn-floating-botttom-right" ng-click="edit()" title="Edit Your Profile"><i class="fa fa-plus"></i></button>
+    
+    </form>
+
+                

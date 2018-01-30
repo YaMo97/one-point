@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)http://www.studytonight.com/servlet/creating-servlet-in-netbeans.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Creating First Servlet Application in Netbeans IDE | Servlet Tutorial | Studytonight</title>
+
+<meta name="keywords" content="Servlet tutotials, Servlet technology notes, Advance Java tutorials, J2EE notes, Servlet request, Servlet response, Web application, Servlet Context, HttpSession, Attributes, Servlet Config, Servlet Life cycle, Filters, Session, Servlet Events and Listeners, Cookies in Servlet, Servlet in NetBeans IDE, First Servlet Application in IDE ">
+<meta name="description" content="Creating first Servlet application in Netbeans IDE. Netbeans IDE is good for beginners in Servlet as it is simple to implement Servlet in Netbeans IDE">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/bootstrap.1481369473.css" rel="stylesheet">
+<link rel="icon" type="image/png" href="http://www.studytonight.com/css/resource/favicon.png">
+</head>
+<body>
+
+
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner">
+<div class="nav-container">
+<a class="brand" href="http://www.studytonight.com/" title="Take me Home :)"><img style="max-height:45px;" id="brand-icon" src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/st-icon-dark.png" alt="studytonight.com"></a>
+
+<ul class="nav navbar-nav nav-left-responsive">
+<li id="hero-dropdown"><a href="http://studytonight.com/library/">Tutorials&nbsp;<span style="position:relative;top:-2px;"><img src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/Navbar-Arrow-Down.png" style="width:15px;height:auto"></span></a>
+<div class="nav-hero-dropdown">
+<div class="white-container" style="border-radius:2px;box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">
+	<div class="row">
+		<div class="span1">
+			<a href="http://www.studytonight.com/java">
+				<div class="space-10 nav-option-box">
+					<div class="center"><span class="malibu-container space-10 round-5"><img class="option-box-img" src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/java.png"></span></div><br>
+					<div class="option-box-text center"><small>JAVA</small></div>
+				</div>
+				
+			</a>
+		</div>
+		<div class="span1">
+			<a href="http://www.studytonight.com/mongodb">
+				<div class="space-10 nav-option-box">
+					<div class="center"><span class="tree-green-container space-10 round-5"><img class="option-box-img" src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/maven.png"></span></div><br>
+					<div class="option-box-text center"><small>MongoDB</small></div>
+				</div>
+				
+			</a>
+		</div>
+		<div class="span1">
+			<a href="http://www.studytonight.com/dbms">
+				<div class="space-10 nav-option-box">
+					<div class="center"><span class="light-purple-container space-10 round-5"><img class="option-box-img" src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/dbms.png"></span></div><br>
+					<div class="option-box-text center"><small>DBMS</small></div>
+				</div>
+				
+			</a>
+		</div>
+		<div class="span1">
+			<a href="http://www.studytonight.com/c">
+				<div class="space-10 nav-option-box">
+					<div class="center"><span class="cream-container space-10 round-5"><img class="option-box-img" src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/c.png"></span></div><br>
+					<div class="option-box-text center"><small>C</small></div>
+				</div>
+				
+			</a>
+		</div>
+		<div class="span1">
+			<a href="http://www.studytonight.com/cpp">
+				<div class="space-10 nav-option-box">
+					<div class="center"><span class="yellow-container space-10 round-5"><img class="option-box-img" src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/cpp.png"></span></div><br>
+					<div class="option-box-text center"><small>C++</small></div>
+				</div>
+				
+			</a>
+		</div>
+		<div class="span1">
+			<a href="http://www.studytonight.com/data-structures">
+				<div class="space-10 nav-option-box">
+					<div class="center"><span class="malibu-light-container space-10 round-5"><img class="option-box-img" src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/ds.png"></span></div><br>
+					<div class="option-box-text center"><small>Data Structure</small></div>
+				</div>
+				
+			</a>
+		</div>
+	</div>
+	<hr style="margin:0">
+	<div class="row">
+		<div class="span1">
+			<a href="http://www.studytonight.com/jsp">
+				<div class="space-10 nav-option-box">
+					<div class="center"><span class="silver-container space-10 round-5"><img class="option-box-img" src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/jsp.png"></span></div><br>
+					<div class="option-box-text center"><small>JSP</small></div>
+				</div>
+				
+			</a>
+		</div>
+		<div class="span1">
+			<a href="http://www.studytonight.com/servlet">
+				<div class="space-10 nav-option-box">
+					<div class="center"><span class="cream-container space-10 round-5"><img class="option-box-img" src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/servlet.png"></span></div><br>
+					<div class="option-box-text center"><small>SERVLET</small></div>
+				</div>
+				
+			</a>
+		</div>
+		<div class="span1">
+			<a href="http://www.studytonight.com/github">
+				<div class="space-10 nav-option-box">
+					<div class="center"><span class="studio-container space-10 round-5"><img class="option-box-img" src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/github.png"></span></div><br>
+					<div class="option-box-text center"><small>GITHUB</small></div>
+				</div>
+				
+			</a>
+		</div>
+		<div class="span1">
+			<a href="http://www.studytonight.com/computer-networks">
+				<div class="space-10 nav-option-box">
+					<div class="center"><span class="tree-green-container space-10 round-5"><img class="option-box-img" src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/cn.png"></span></div><br>
+					<div class="option-box-text center"><small>Computer Network</small></div>
+				</div>
+				
+			</a>
+		</div>
+		<div class="span1">
+			<a href="http://www.studytonight.com/operating-system">
+				<div class="space-10 nav-option-box">
+					<div class="center"><span class="light-purple-container space-10 round-5"><img class="option-box-img" src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/os.png"></span></div><br>
+					<div class="option-box-text center"><small>Operating System</small></div>
+				</div>
+				
+			</a>
+		</div>
+		<div class="span1">
+			<a href="http://www.studytonight.com/jenkins">
+				<div class="space-10 nav-option-box">
+					<div class="center"><span class="malibu-container space-10 round-5"><img class="option-box-img" src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/jenkins.png"></span></div><br>
+					<div class="option-box-text center"><small>JENKINS</small></div>
+				</div>
+				
+			</a>
+		</div>
+	</div>
+	<hr style="margin:0">
+	<div class="row">
+		<div class="span1">
+			<a href="http://www.studytonight.com/ruby">
+				<div class="space-10 nav-option-box">
+					<div class="center"><span class="yellow-container space-10 round-5"><img class="option-box-img" src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/ruby.png"></span></div><br>
+					<div class="option-box-text center"><small>RUBY</small></div>
+				</div>
+				
+			</a>
+		</div>
+		<div class="span1">
+			<a href="http://www.studytonight.com/android-app-using-mit-appinventor">
+				<div class="space-10 nav-option-box">
+					<div class="center"><span class="marine-container space-10 round-5"><img class="option-box-img" src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/android.png"></span></div><br>
+					<div class="option-box-text center"><small>MIT AppInventor</small></div>
+				</div>
+				
+			</a>
+		</div>
+		
+		<div class="span1">
+			<a href="http://www.studytonight.com/drools">
+				<div class="space-10 nav-option-box">
+					<div class="center"><span class="malibu-light-container space-10 round-5"><img class="option-box-img" src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/drools.png"></span></div><br>
+					<div class="option-box-text center"><small>DROOLS</small></div>
+				</div>
+				
+			</a>
+		</div>
+		<div class="span1">
+			<a href="http://www.studytonight.com/maven">
+				<div class="space-10 nav-option-box">
+					<div class="center"><span class="shamrock-container space-10 round-5"><img class="option-box-img" src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/maven.png"></span></div><br>
+					<div class="option-box-text center"><small>MAVEN</small></div>
+				</div>
+				
+			</a>
+		</div>
+	</div>
+</div>
+</div>
+</li>
+<li><a href="http://studytonight.com/studyroom/">Q &amp; A Forum</a></li>
+<li><a href="http://studytonight.com/tests/">Tests</a></li>
+<li><a href="http://studytonight.com/code/">HTML Course</a></li>
+</ul>
+
+<ul class="nav pull-right-menuoption nav-right-responsive">
+<!--
+<li>
+<form class="navbar-search" action="/search.php" method="GET"> 
+<table>
+<tr>
+<td><input type="text" name="q" maxlength="255" value="" class="search-query span1" placeholder="Search" title="Search Studytonight for Lessons and Topics"/></td>
+</tr>
+</table>
+</form>
+</li> -->
+<li><a href="http://www.studytonight.com/login">LogIn</a></li>
+<li><a href="http://www.studytonight.com/suggest">Suggest</a></li>
+</ul>
+<div class="nav pull-right-menuoption nav-right-responsive" style="margin-right:15px;">
+<span title="Download Studytonight Android App"><a href="https://play.google.com/store/apps/details?id=com.studytonight.app" target="_blank"><img src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/android(1).png" alt="Download Android App" style="max-width:36px;"></a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a class="btn btn-warning" href="http://www.studytonight.com/register">SignUp</a>
+</div>
+
+</div>
+</div>
+</div>
+
+<div style="float:right;margin-right:100px;">
+<div class="bookmark-responsive">
+<div class="bookmark-ribbon traditional roboto">
+<a href="http://www.studytonight.com/collaborate" target="_blank"><div id="bookmark-text">
+<div>WRITE</div><div>FOR US &amp;</div><div>GET PAID!</div>
+</div></a>
+</div></div></div>
+
+<div class="row">
+	<div class="space-top-50 space-bottom-5 cream-container">	
+	<div class="container center-med-small"><div id="subject-name">
+	
+		SERVLET TECHNOLOGY
+	</div>
+	<div class="pull-right hide-on-med-small">
+		<a href="http://www.studytonight.com/tests/" class="link-inverse">
+			<div class="top-right-goto-test card card-light roboto">
+				<span class="tip-icon"></span>&nbsp;&nbsp;PRACTICE TESTS →
+			</div>
+		</a>
+	</div>
+	</div>
+</div>
+</div><!-- Common sub nav bar for all the lesson page, currently holding Google Adsense Code -->
+
+<div class="center plain-text-ad-style" style="margin-bottom:10px;">
+<div class="container">
+<div class="row">
+<div class="span12">
+	<script type="text/javascript" async="" src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/ga.js.download"></script><script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Responsive Footer Ad -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6137246359299957" data-ad-slot="1965829825" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</div>	
+</div>
+</div><div class="container">
+<div class="row">
+<script src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/jquery.1423906530.js.download"></script>
+<script type="text/javascript">
+$(function() {
+
+$('#slide-toggle-sidebar').on('click', function(){
+        $('#sidebar-menu').css('width','100%');
+	$('#sidebar-menu').slideToggle();
+	return false;
+});
+
+});
+</script>
+
+<div class="span3">
+
+<div class="sidebar-collpsed-responsive">
+<a href="http://www.studytonight.com/servlet/creating-servlet-in-netbeans.php#" id="slide-toggle-sidebar"><span class="pull-right"><img src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/collapsed-menu.png" alt="Menu"></span><span>SEE THE INDEX</span></a>
+</div>
+
+<div id="sidebar-menu">
+<div class="card card-light">
+
+<ul class="sidebar">
+<li class="main"><b>Servlet Basics</b></li>
+<li><a href="http://www.studytonight.com/servlet/introduction-to-web.php">Introduction to Web</a></li>
+<li><a href="http://www.studytonight.com/servlet/introduction-to-servlet.php">Introduction to Servlet</a></li>
+<li><a href="http://www.studytonight.com/servlet/servlet-api.php">Servlet API</a></li>
+<li><a href="http://www.studytonight.com/servlet/how-a-servlet-application-work.php">How a servlet application work</a></li>
+<li><a href="http://www.studytonight.com/servlet/servlet-life-cycle.php">Servlet Life Cycle</a></li>
+<li><a href="http://www.studytonight.com/servlet/steps-to-create-servlet-using-tomcat-server.php">Steps to create servlet using Tomcat server</a></li>
+<li><a href="http://www.studytonight.com/servlet/creating-servlet-in-netbeans.php">Steps to create servlet in Netbeans IDE</a></li>
+<li><a href="http://www.studytonight.com/servlet/creating-servlet-in-eclipse.php">Steps to create servlet in Eclipse IDE</a></li>
+<li class="main"><b>Servlet Request and Response</b></li>
+<li><a href="http://www.studytonight.com/servlet/servlet-request.php">Servlet Request</a></li>
+<li><a href="http://www.studytonight.com/servlet/servlet-response.php">Servlet Response</a></li>
+<li><a href="http://www.studytonight.com/servlet/request-dispatcher.php">Request Dispatcher</a></li>
+<li><a href="http://www.studytonight.com/servlet/sendredirect-method.php">sendRedirect method</a></li>
+<li><a href="http://www.studytonight.com/servlet/servlet-config.php">ServletConfig interface</a></li>
+<li><a href="http://www.studytonight.com/servlet/servlet-context.php">ServletContext interface</a></li>
+<li><a href="http://www.studytonight.com/servlet/attribute.php">Attribute</a></li>
+<li class="main"><b>Session Management</b></li>
+<li><a href="http://www.studytonight.com/servlet/session-management.php">How session work</a></li>
+<li><a href="http://www.studytonight.com/servlet/httpsession.php">HttpSession</a></li>
+<li><a href="http://www.studytonight.com/servlet/storing-session-using-cookies.php">Cookies</a></li>
+<li><a href="http://www.studytonight.com/servlet/url-rewriting-for-session-management.php">URL rewriting</a></li>
+<li><a href="http://www.studytonight.com/servlet/hidden-form-field.php">Hidden form field</a></li>
+<li class="main"><b>Event and Listeners</b></li>
+<li><a href="http://www.studytonight.com/servlet/servlet-context-listener.php">ServletContextEvent and ServletContextListener</a></li>
+<li><a href="http://www.studytonight.com/servlet/attribute-listener.php">Attribute Listener</a></li>
+<li><a href="http://www.studytonight.com/servlet/httpsession-event-and-listener.php">HttpSessionEvent and HttpSessionListener</a></li>
+<li><a href="http://www.studytonight.com/servlet/servlet-request-event-and-listener.php">ServletRequestEvent and ServletRequestListener</a></li>
+<li class="main"><b>Filters</b></li>
+<li><a href="http://www.studytonight.com/servlet/filter-api.php">Filter API</a></li>
+<li class="main"><b>Important Example</b></li>
+<li><a href="http://www.studytonight.com/servlet/registration-form-example-in-servlet.php">Registration form</a></li>
+<li><a href="http://www.studytonight.com/servlet/login-system-example-in-servlet.php">Login system</a></li>
+<li><a href="http://www.studytonight.com/servlet/Sending-email-using-servlet.php">Sending Email</a></li>
+</ul>
+
+<p style="margin-left:5px;" class="hide-on-med-small">
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Responsive Footer Ad -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6137246359299957" data-ad-slot="1965829825" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</p>
+
+</div>
+</div>
+</div><div class="span9">
+<div id="body-content">
+<h3>Creating First Servlet Application using Netbeans IDE</h3>
+<p>In the last lesson we created our first Servlet Application but without using any IDE. An IDE is Integrated Development Environment, and it makes creating applications a lot easier. We will learn how to create Servlet applications on NetBeans IDE and Eclipse IDE. Then you can decide which one, you want to use.</p>
+<p>
+Using Intregrated Development Enviroment(IDE) is the easiest way to create Servlet Applications. An IDE is a software application that provides facilities to computer programmers for software development. <b>Eclipse</b>, <b>MyEcplise</b>, <b>Netbeans</b> are example of some popular Java IDE. 
+</p>
+<hr>
+<h4>Steps to Create Servlet Application in Netbeans IDE</h4>
+<p>
+To create a servlet application in Netbeans IDE, you will need to follow the following (simple) steps :
+</p>
+<ol class="content">
+<li>Open Netbeans IDE, Select <b>File</b> -&gt; <b>New Project</b>
+<p class="center"><img src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/steps-to-create-servlet-application-in-netbeans.jpg" alt="steps to create servlet application in netbeans"></p>
+</li>
+<hr>
+<li>Select <b>Java Web</b> -&gt; <b>Web Application</b>, then click on Next,
+<p class="center"><img src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/steps-to-create-servlet-application-in-netbeans1.jpg" alt="steps to create servlet application in netbeans"></p>
+</li>
+<hr>
+<li>Give a name to your project and click on Next,
+<p class="center"><img src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/steps-to-create-servlet-application-in-netbeans2.jpg" alt="steps to create servlet application in netbeans"></p>
+</li>
+<hr>
+<li>and then, Click <b>Finish</b>
+<p class="center"><img src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/steps-to-create-servlet-application-in-netbeans3.jpg" alt="steps to create servlet application in netbeans"></p>
+</li>
+<hr>
+<li>The complete directory structure required for the Servlet Application will be created automatically by the IDE.
+<p class="center"><img src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/steps-to-create-servlet-application-in-netbeans3_1.jpg" alt="steps to create servlet application in netbeans"></p>
+</li>
+<hr>
+<li>To create a Servlet, open <b>Source Package</b>, right click on <b>default packages</b> -&gt; <b>New</b> -&gt; <b>Servlet</b>.
+<p class="center"><img src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/steps-to-create-servlet-application-in-netbeans4.jpg" alt="steps to create servlet application in netbeans"></p>
+</li>
+<hr>
+<li>Give a Name to your Servlet class file,
+<p class="center"><img src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/steps-to-create-servlet-application-in-netbeans4_1.jpg" alt="steps to create servlet application in netbeans"></p>
+<p class="center"><img src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/steps-to-create-servlet-application-in-netbeans4_2.jpg" alt="steps to create servlet application in netbeans"></p>
+</li>
+<hr>
+<li>Now, your Servlet class is ready, and you just need to change the method definitions and you will good to go.
+<p class="center"><img src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/steps-to-create-servlet-application-in-netbeans4_3.jpg" alt="steps to create servlet application in netbeans"></p>
+</li>
+<hr>
+<li>Write some code inside your Servlet class.
+<p class="center"><img src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/steps-to-create-servlet-application-in-netbeans5.jpg" alt="steps to create servlet application in netbeans"></p>
+</li>
+<hr>
+<li>Create an HTML file, right click on <b>Web Pages</b> -&gt; <b>New</b> -&gt; <b>HTML</b>
+<p class="center"><img src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/steps-to-create-servlet-application-in-netbeans6.jpg" alt="steps to create servlet application in netbeans"></p>
+</li>
+<hr>
+<li>Give it a name. We recommend you to name it <code>index</code>, because browser will always pick up the <code>index.html</code> file automatically from a directory. Index file is read as the first page of the web application.
+<p class="center"><img src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/steps-to-create-servlet-application-in-netbeans6_1.jpg" alt="steps to create servlet application in netbeans"></p>
+</li>
+<hr>
+<li>Write some code inside your HTML file. We have created a hyperlink to our Servlet in our HTML file.
+<p class="center"><img src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/steps-to-create-servlet-application-in-netbeans7.jpg" alt="steps to create servlet application in netbeans"></p>
+</li>
+<hr>
+<li>Edit <b>web.xml</b> file. In the web.xml file you can see, we have specified the <b>url-pattern</b> and the <b>servlet-name</b>, this means when <code>hello</code> url is accessed our Servlet file will be executed.
+<p class="center"><img src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/steps-to-create-servlet-application-in-netbeans8.jpg" alt="steps to create servlet application in netbeans"></p>
+</li>
+<hr>
+<li>Run your application, right click on your Project and select <b>Run</b>
+<p class="center"><img src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/steps-to-create-servlet-application-in-netbeans9.jpg" alt="steps to create servlet application in netbeans"></p>
+</li>
+<hr>
+<li>Click on the link created, to open your Servlet.
+<p class="center"><img src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/steps-to-create-servlet-application-in-netbeans10.jpg" alt="steps to create servlet application in netbeans"></p>
+</li>
+<hr>
+<li>Hurray! Our First Servlet class is running.
+<p class="center"><img src="./Creating First Servlet Application in Netbeans IDE _ Servlet Tutorial _ Studytonight_files/steps-to-create-servlet-application-in-netbeans11.jpg" alt="steps to create servlet application in netbeans"></p>
+</li>
+</ol>
+<hr>
+<div><ul class="pager">
+<li class="previous">
+<a href="http://www.studytonight.com/servlet/steps-to-create-servlet-using-tomcat-server">← Prev</a>
+</li>
+<li class="next">
+<a href="http://www.studytonight.com/servlet/creating-servlet-in-eclipse">Next →</a>
+</li>
+</ul></div>
+
+</div>
+</div>
+
+</div>
+
+</div><!-- Container Ends here--> 
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39722043-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<div class="container margin-30">
+	<div class="row">
+		<div class="span12">
+			<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Responsive Footer Ad -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6137246359299957" data-ad-slot="1965829825" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+		</div>
+	</div>
+</div>
+
+<div id="footer" class="hide-on-med-small">
+<div class="container margin-30 roboto">
+	<div class="row">
+		<div class="span3">
+			<p>What is Studytonight?</p>
+			<p><a href="http://www.studytonight.com/about">About Us</a></p>
+			<p><a href="http://www.studytonight.com/howitworks">How it Works</a></p>
+			<p><a href="http://www.studytonight.com/authors">Authors</a></p>
+			<p><a href="http://www.studytonight.com/collaborate">Collaborate</a></p>
+			<p><a href="http://www.studytonight.com/contact">Contact Us</a></p>
+			<p><a href="http://www.studytonight.com/suggest">Suggest</a></p>
+			<p><a href="http://blog.studytonight.com/" target="_blank">Blog</a></p>
+		</div>
+		<div class="span3">
+			<p>Tutorials</p>
+				<div>
+					<p><a href="http://www.studytonight.com/java">Core Java</a></p>
+					<p><a href="http://www.studytonight.com/cpp">C++</a></p>
+					<p><a href="http://www.studytonight.com/data-structures">Data Structures</a></p>
+					<p><a href="http://www.studytonight.com/jenkins">Jenkins Server</a></p>
+					<p><a href="http://www.studytonight.com/dbms">DBMS</a></p>
+					<p><a href="http://www.studytonight.com/servlet">Servlet</a></p>
+					<p><a href="http://www.studytonight.com/library">More...</a></p>
+				</div>
+		</div>
+		<div class="span3">
+			<p>Tests</p>
+				<div>
+					<p><a href="http://www.studytonight.com/tests">Core Java</a></p>
+					<p><a href="http://www.studytonight.com/tests?/?subject=cpp">C++</a></p>
+					<p><a href="http://www.studytonight.com/tests?/?subject=dbms">DBMS</a></p>
+					<p><a href="http://www.studytonight.com/tests?/?subject=c">C Language</a></p>
+					<p><a href="http://www.studytonight.com/tests">More...</a></p>
+				</div>
+		</div>
+		<div class="span3">
+			<p>Learn to Code</p>
+				<div>
+					<p><a href="http://www.studytonight.com/code/html">HTML</a></p>
+					<br><br>
+					<p>
+						<a href="http://facebook.com/Studytonight" target="_blank"><span class="facebook-32"></span></a>&nbsp;&nbsp;
+						<a href="http://twitter.com/studytonight" target="_blank"><span class="twitter-32"></span></a>&nbsp;&nbsp;
+						<a href="https://plus.google.com/+Studytonight/" target="_blank"><span class="googleplus-32"></span></a>
+					</p>
+					<br>
+					<p>© 2016 Studytonight
+				</p></div>
+		</div>
+
+	</div>  <!-- /row-->
+</div> <!-- /container -->
+</div>  <!-- /footer -->
+
+</body></html>

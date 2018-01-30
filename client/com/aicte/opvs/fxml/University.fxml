@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="766.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aicte.opvs.views.UniversityController">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="766.0" style="-fx-background-color: #EBF5FB;">
+         <children>
+            <AnchorPane layoutY="-1.0" prefHeight="588.0" prefWidth="251.0" style="-fx-background-color: #5DADE2;">
+               <children>
+                  <ImageView fitHeight="113.0" fitWidth="113.0" layoutX="62.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="aicte-logo.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="72.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State" textAlignment="CENTER" wrappingWidth="92.888671875">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="state" layoutX="6.0" layoutY="325.0" onAction="#handlestate" prefHeight="25.0" prefWidth="240.0" />
+                  <JFXButton fx:id="submit" layoutX="75.0" layoutY="413.0" onAction="#handlesubmit" prefHeight="25.0" prefWidth="101.0" style="-fx-background-color: #EBF5FB;" text="Submit">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </JFXButton>
+                  <ImageView fx:id="home" fitHeight="46.0" fitWidth="48.0" layoutX="6.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="home3.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <JFXTreeTableView fx:id="tableview" layoutX="264.0" layoutY="54.0" prefHeight="477.0" prefWidth="490.0" />
+            <Text layoutX="458.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UNIVERSITY" wrappingWidth="154.0">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

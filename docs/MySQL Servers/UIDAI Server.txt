@@ -1,0 +1,27 @@
+UIDAI MySQL Server
+Host = localhost
+port = 3308
+BASEDIR="C:\Program Files\MySQL"
+DATADIR="F:\Workspace\MySQL\UIDAI\data"
+
+1. 	Start Server
+
+	"C:\Program Files\MySQL\bin\mysqld" --defaults-file="C:\Program Files\MySQL\my-uidai.ini"
+	
+		or 
+
+	Start Windows Service - MySQL3308
+
+2. 	Connect Client
+
+	"C:\Program Files\MySQL\bin\mysql" --port=3308 -u user -p
+	Enter Password : user
+
+3. 	Shutdown Server
+
+	"C:\Program Files\MySQL\bin\mysqladmin" --port=3308 -u user -p shutdown
+	Enter Password : user
+
+		or 
+
+	Stop Windows Service - MySQL3308
