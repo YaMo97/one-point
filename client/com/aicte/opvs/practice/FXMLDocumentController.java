@@ -309,7 +309,7 @@ List<String> list = new ArrayList<String>();
         list.add("Delhi");
         list.add("Punjab");
         list.add("Tamil Nadu");
-        ObservableList obList = FXCollections.observableList(list);
+        ObservableList <String> obList = FXCollections.observableList(list);
 //        universitycombo.getItems().clear();
 //        universitycombo.setItems(obList);
 

@@ -50,7 +50,7 @@ public class EmployeeController implements Initializable {
     void submitButtonAction(ActionEvent event) {
     	// TODO
     	
-    	String state = stateComboBox.getValue();
+//    	String state = stateComboBox.getValue();
     	
     	StringBuffer queryBuffer = new StringBuffer("1");
     	queryBuffer.append("&role=");
@@ -83,7 +83,7 @@ public class EmployeeController implements Initializable {
     			i++;
  		}
     	}
-       ObservableList<String> obList = FXCollections.observableList(list);
+//       ObservableList<String> obList = FXCollections.observableList(list);
 
         for (int i = 0; i < list.size(); i++) {
 //            employeeTable.getItems().add(i);
